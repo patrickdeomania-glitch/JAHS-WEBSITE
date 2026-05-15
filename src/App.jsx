@@ -277,8 +277,7 @@ function App() {
                   </div>
                 </div>
               )}
-
-              {/* PERSONNEL PAGE */}
+{/* PERSONNEL PAGE */}
 {activePage === 'Personnel' && (
   <div className="container py-5">
     <div className="text-center mb-5">
@@ -287,7 +286,6 @@ function App() {
       <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
       <p className="lead text-secondary">A certified team of experts driving telecom excellence since 2004.</p>
     </div>
-
                   {/* LEADERSHIP - GENERAL MANAGER */}
                   <div className="row justify-content-center mb-5">
                     <div className="col-lg-8">

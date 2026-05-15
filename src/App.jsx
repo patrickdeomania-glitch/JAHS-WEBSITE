@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+// THE CRITICAL FIX: Import the bootstrap module directly to enable the auto-cycle
+import * as bootstrap from 'bootstrap'; 
 import './App.css';
 
 import SideBar from './components/SideBar';
@@ -9,6 +11,23 @@ function App() {
   const [activePage, setActivePage] = useState('Home');
   const [isStreetView, setIsStreetView] = useState(false);
   const [timelineYear, setTimelineYear] = useState(2024);
+
+  // AUTOMATED SLIDESHOW TRIGGER
+  // This logic runs every time the user switches to the 'Events' page
+  useEffect(() => {
+    if (activePage === 'Events') {
+      const carouselElList = document.querySelectorAll('.carousel');
+      carouselElList.forEach(carouselEl => {
+        const carousel = new bootstrap.Carousel(carouselEl, {
+          interval: 3000, // Requirement: 3 seconds
+          ride: 'carousel', // Requirement: Start automatically
+          pause: false, // Requirement: Continuous (won't stop on hover)
+          wrap: true // Requirement: Loop back to start
+        });
+        carousel.cycle(); // Force the animation to begin
+      });
+    }
+  }, [activePage]);
 
   const getPartnersByYear = (year) => {
     const data = {
@@ -277,6 +296,53 @@ function App() {
                   </div>
                 </div>
               )}
+              {/* EVENTS PAGE */}
+          {activePage === 'Events' && (
+            <div className="container py-5">
+              <div className="text-center mb-5">
+                <h1 className="display-4 fw-bold text-dark mb-2">Events & Highlights</h1>
+                <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
+              </div>
+
+              <div className="row g-4 justify-content-center">
+                <div className="col-lg-6">
+                  <div className="bg-white p-4 rounded-5 shadow-lg border-top border-primary border-5 h-100">
+                    <div className="d-flex align-items-center mb-4">
+                      <i className="bi bi-mortarboard-fill text-primary fs-3 me-3"></i>
+                      <h4 className="fw-bold mb-0">OJT Program 2025</h4>
+                    </div>
+                    <div id="ojtCarousel" className="carousel slide carousel-fade">
+                      <div className="carousel-inner rounded-4 shadow-sm">
+                        {[1, 2, 3, 4, 5, 6, 7, 8].map((num, index) => (
+                          <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={`ojt-${num}`}>
+                            <img src={`/ojt${num}.png`} className="d-block w-100" style={{ height: '380px', objectFit: 'cover' }} alt={`OJT ${num}`} />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-lg-6">
+                  <div className="bg-white p-4 rounded-5 shadow-lg border-top border-success border-5 h-100">
+                    <div className="d-flex align-items-center mb-4">
+                      <i className="bi bi-people-fill text-success fs-3 me-3"></i>
+                      <h4 className="fw-bold mb-0">Team Engagement</h4>
+                    </div>
+                    <div id="engagementCarousel" className="carousel slide carousel-fade">
+                      <div className="carousel-inner rounded-4 shadow-sm">
+                        {[1, 2, 3, 4, 5, 6, 7].map((num, index) => (
+                          <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={`hl-${num}`}>
+                            <img src={`/hl${num}.png`} className="d-block w-100" style={{ height: '380px', objectFit: 'cover' }} alt={`Engagement ${num}`} />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 {/* PERSONNEL PAGE */}
 {activePage === 'Personnel' && (
   <div className="container py-5">

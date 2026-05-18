@@ -86,32 +86,94 @@ function App() {
                   </div>
                 ))}
               </div>
-              {/* WAREHOUSE & FACILITIES GALLERY */}
-<div className="mb-5">
+              {/* MASTER LOGISTICS & INFRASTRUCTURE GALLERY */}
+<div className="mb-5 mt-5">
+  
+  {/* --- SECTION 1: FLEET & TRANSPORT (log1 - log2) --- */}
   <div className="d-flex align-items-center mb-4">
-    <div className="bg-primary bg-opacity-10 p-2 rounded-4 me-3">
-      <i className="bi bi-building-fill text-primary fs-4"></i>
+    <div className="bg-dark p-3 rounded-4 me-3 shadow-sm">
+      <i className="bi bi-truck-front-fill text-white fs-4"></i>
     </div>
     <div>
-      <h4 className="fw-bold text-dark mb-0" style={{ fontFamily: "'Nexa Slab', serif" }}>Our Warehousing & Logistics Hubs</h4>
-      <div className="bg-primary opacity-50 mt-1" style={{ height: '3px', width: '50px' }}></div>
+      <h3 className="fw-bolder text-dark mb-0" style={{ fontFamily: "'Nexa Slab', serif" }}>
+        Supply Chain & Fleet Operations
+      </h3>
+      <p className="text-muted mb-0 small">Secure transport and staging for telecom infrastructure</p>
     </div>
+  </div>
+
+  <div className="row g-4 mb-5">
+    {[1, 2].map((num) => (
+      <div className="col-md-6" key={`fleet-${num}`}>
+        <div className="card border-0 shadow-lg rounded-4 overflow-hidden h-100">
+          <div className="position-relative">
+            <img 
+              src={`/log${num}.png`} 
+              className="w-100" 
+              style={{ height: '300px', objectFit: 'cover' }} 
+              alt={`JAHS Heavy Transport Unit ${num}`} 
+            />
+            <div className="position-absolute top-0 start-0 m-3">
+              <span className="badge bg-dark bg-opacity-75 px-3 py-2 shadow border border-secondary">
+                <i className="bi bi-geo-alt-fill text-danger me-2"></i> Active Dispatch
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* --- SECTION 2: STAGED INVENTORY (box1 - box5) --- */}
+  <div className="d-flex align-items-center mb-3">
+    <i className="bi bi-boxes text-primary me-2 fs-5"></i>
+    <h5 className="fw-bold text-dark mb-0">Staged Asset Inventory</h5>
+  </div>
+  
+  <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 mb-5">
+    {[1, 2, 3, 4, 5].map((num) => (
+      <div className="col" key={`inventory-${num}`}>
+        <div className="card border border-light shadow-sm rounded-4 overflow-hidden h-100 transition-hover">
+          <img 
+            src={`/box${num}.png`} 
+            className="w-100" 
+            style={{ height: '180px', objectFit: 'cover' }} 
+            alt={`Secured Telecom Inventory ${num}`} 
+          />
+          <div className="card-footer bg-white border-top-0 text-center py-2">
+            <small className="fw-bold text-muted" style={{ fontSize: '0.70rem', letterSpacing: '1px' }}>
+              <i className="bi bi-upc-scan me-1"></i> SECURE BATCH-0{num}
+            </small>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* --- SECTION 3: FACILITY OVERVIEW (war1 - war6) --- */}
+  <div className="d-flex align-items-center mb-3">
+    <i className="bi bi-building-gear text-primary me-2 fs-5"></i>
+    <h5 className="fw-bold text-dark mb-0">Inside Our Facilities</h5>
   </div>
 
   <div className="row g-3">
     {[1, 2, 3, 4, 5, 6].map((num) => (
       <div className="col-lg-4 col-md-6" key={`war-${num}`}>
-        <div className="card border-0 shadow-sm rounded-5 overflow-hidden transition-hover">
+        <div className="card border-0 shadow-sm rounded-4 overflow-hidden transition-hover h-100">
           <img 
             src={`/war${num}.png`} 
             className="w-100" 
             style={{ height: '220px', objectFit: 'cover' }} 
-            alt={`JAHS Warehouse Facility ${num}`} 
+            alt={`JAHS Operational Facility ${num}`} 
           />
+          <div className="card-img-overlay d-flex align-items-end p-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)' }}>
+            <span className="text-white small fw-bold p-3">Facility View 0{num}</span>
+          </div>
         </div>
       </div>
     ))}
   </div>
+
 </div>
 
                {/* MAJOR PROJECTS SECTION */}

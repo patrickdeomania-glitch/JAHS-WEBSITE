@@ -86,6 +86,33 @@ function App() {
                   </div>
                 ))}
               </div>
+              {/* WAREHOUSE & FACILITIES GALLERY */}
+<div className="mb-5">
+  <div className="d-flex align-items-center mb-4">
+    <div className="bg-primary bg-opacity-10 p-2 rounded-4 me-3">
+      <i className="bi bi-building-fill text-primary fs-4"></i>
+    </div>
+    <div>
+      <h4 className="fw-bold text-dark mb-0" style={{ fontFamily: "'Nexa Slab', serif" }}>Our Warehousing & Logistics Hubs</h4>
+      <div className="bg-primary opacity-50 mt-1" style={{ height: '3px', width: '50px' }}></div>
+    </div>
+  </div>
+
+  <div className="row g-3">
+    {[1, 2, 3, 4, 5, 6].map((num) => (
+      <div className="col-lg-4 col-md-6" key={`war-${num}`}>
+        <div className="card border-0 shadow-sm rounded-5 overflow-hidden transition-hover">
+          <img 
+            src={`/war${num}.png`} 
+            className="w-100" 
+            style={{ height: '220px', objectFit: 'cover' }} 
+            alt={`JAHS Warehouse Facility ${num}`} 
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
 
                {/* MAJOR PROJECTS SECTION */}
 <div className="bg-dark text-white p-5 rounded-5 shadow-lg overflow-hidden position-relative">
@@ -513,6 +540,72 @@ function App() {
                   </div>
                 </div>
               )}
+              {/* BLOG PAGE */}
+{activePage === 'Blog' && (
+  <div className="container py-5">
+    <div className="text-center mb-5">
+      <h1 className="display-4 fw-bold text-dark mb-2">Technical Insights</h1>
+      <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
+      <p className="lead text-secondary">Expertise in DC systems, infrastructure, and the future of telecom.</p>
+    </div>
+
+    <div className="row g-4">
+      {/* POST 1: Case Study */}
+      <div className="col-lg-4 col-md-6">
+        <div className="card h-100 border-0 shadow-lg rounded-5 overflow-hidden transition-hover">
+          <div className="position-relative">
+            <img src="/blog-power.png" className="card-img-top" style={{ height: '200px', objectFit: 'cover' }} alt="DC Power" />
+            <span className="position-absolute top-0 start-0 m-3 badge bg-primary">Case Study</span>
+          </div>
+          <div className="card-body p-4">
+            <p className="extra-small text-muted mb-2">March 15, 2026</p>
+            <h5 className="fw-bold mb-3">Maximizing Uptime: The Globe Copenhagen Migration</h5>
+            <p className="small text-secondary mb-4">
+              A detailed look at how our team successfully managed a 120kW load migration without a single second of service interruption.
+            </p>
+            <button className="btn btn-outline-primary btn-sm rounded-pill px-4">Read More</button>
+          </div>
+        </div>
+      </div>
+
+      {/* POST 2: Innovation */}
+      <div className="col-lg-4 col-md-6">
+        <div className="card h-100 border-0 shadow-lg rounded-5 overflow-hidden transition-hover">
+          <div className="position-relative">
+            <img src="/blog-battery.png" className="card-img-top" style={{ height: '200px', objectFit: 'cover' }} alt="Batteries" />
+            <span className="position-absolute top-0 start-0 m-3 badge bg-success">Innovation</span>
+          </div>
+          <div className="card-body p-4">
+            <p className="extra-small text-muted mb-2">February 28, 2026</p>
+            <h5 className="fw-bold mb-3">The Shift to Sodium-Ion Battery Technology</h5>
+            <p className="small text-secondary mb-4">
+              Why JAHS is leading the way in testing Sodium-Ion alternatives for more sustainable and cost-effective telecom power storage.
+            </p>
+            <button className="btn btn-outline-primary btn-sm rounded-pill px-4">Read More</button>
+          </div>
+        </div>
+      </div>
+
+      {/* POST 3: Community/OJT */}
+      <div className="col-lg-4 col-md-6">
+        <div className="card h-100 border-0 shadow-lg rounded-5 overflow-hidden transition-hover">
+          <div className="position-relative">
+            <img src="/blog-ojt.png" className="card-img-top" style={{ height: '200px', objectFit: 'cover' }} alt="Interns" />
+            <span className="position-absolute top-0 start-0 m-3 badge bg-dark">Community</span>
+          </div>
+          <div className="card-body p-4">
+            <p className="extra-small text-muted mb-2">January 10, 2026</p>
+            <h5 className="fw-bold mb-3">Empowering the Next Generation of Engineers</h5>
+            <p className="small text-secondary mb-4">
+              Highlights from our 2025 OJT Program, where interns gained hands-on experience in MW installation and network testing.
+            </p>
+            <button className="btn btn-outline-primary btn-sm rounded-pill px-4">Read More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
 
              {/* LOCATIONS PAGE */}
           {activePage === 'Locations' && (

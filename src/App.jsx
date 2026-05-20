@@ -542,68 +542,150 @@ function App() {
 
   </div>
 )}
-              {/* BLOG PAGE */}
+ {/* BLOG PAGE */}
 {activePage === 'Blog' && (
   <div className="container py-5">
     <div className="text-center mb-5">
-      <h1 className="display-4 fw-bold text-dark mb-2">Technical Insights</h1>
+      <h1 className="display-4 fw-bold text-dark mb-2">Technical Insights & Operations</h1>
       <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
-      <p className="lead text-secondary">Expertise in DC systems, infrastructure, and the future of telecom.</p>
+      <p className="lead text-secondary">Expertise in DC systems, infrastructure, and real-time operational updates.</p>
     </div>
 
-    <div className="row g-4">
-      {/* POST 1: Case Study */}
-      <div className="col-lg-4 col-md-6">
-        <div className="card h-100 border-0 shadow-lg rounded-5 overflow-hidden transition-hover">
-          <div className="position-relative">
-            <img src="/blog-power.png" className="card-img-top" style={{ height: '200px', objectFit: 'cover' }} alt="DC Power" />
-            <span className="position-absolute top-0 start-0 m-3 badge bg-primary">Case Study</span>
-          </div>
+    <div className="row g-5">
+      
+      {/* LATEST TECHNOLOGIES COLUMN */}
+      <div className="col-lg-8">
+        <div className="d-flex align-items-center mb-4">
+          <i className="bi bi-cpu-fill text-primary fs-4 me-2"></i>
+          <h4 className="fw-bold text-dark mb-0">Latest Technologies</h4>
+        </div>
+
+        {/* Article 1: Energy & Telecom */}
+        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden transition-hover">
           <div className="card-body p-4">
-            <p className="extra-small text-muted mb-2">March 15, 2026</p>
-            <h5 className="fw-bold mb-3">Maximizing Uptime: The Globe Copenhagen Migration</h5>
-            <p className="small text-secondary mb-4">
-              A detailed look at how our team successfully managed a 120kW load migration without a single second of service interruption.
+            <span className="badge bg-primary bg-opacity-10 text-primary border border-primary mb-3 px-3 py-2 rounded-pill">Telecom Infrastructure</span>
+            <h5 className="fw-bold text-dark mb-3">The Shift to High-Efficiency Lithium-Ion Systems in Cell Sites</h5>
+            <p className="text-muted small mb-4 lh-lg" style={{ textAlign: 'justify' }}>
+              Modern telecom sites are rapidly migrating from traditional VRLA batteries to advanced Lithium-Ion solutions. This transition offers higher energy density, faster recharge rates, and longer lifespans, drastically reducing maintenance overhead for nationwide network operators and ensuring uninterrupted power during grid failures.
             </p>
-            <button className="btn btn-outline-primary btn-sm rounded-pill px-4">Read More</button>
+            <a href="#read-more" className="text-primary fw-bold text-decoration-none small text-uppercase tracking-wider">
+              Read Full Report <i className="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        {/* Article 2: Network Engineering */}
+        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden transition-hover">
+          <div className="card-body p-4">
+            <span className="badge bg-dark bg-opacity-10 text-dark border border-dark mb-3 px-3 py-2 rounded-pill">Network Engineering</span>
+            <h5 className="fw-bold text-dark mb-3">IPv6 Adoption: Future-Proofing Next-Gen Network Layers</h5>
+            <p className="text-muted small mb-4 lh-lg" style={{ textAlign: 'justify' }}>
+              With the aggressive expansion of IoT devices and 5G network deployments, the exhaustion of IPv4 addresses mandates a definitive shift to IPv6. Mastering protocol headers, complex subnetting, and efficient router interface assignments is now critical for engineering robust, scalable data centers that can handle next-generation data loads.
+            </p>
+            <a href="#read-more" className="text-dark fw-bold text-decoration-none small text-uppercase tracking-wider">
+              Read Full Report <i className="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+        
+        {/* Article 3: Web & System Architecture */}
+        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden transition-hover">
+          <div className="card-body p-4">
+            <span className="badge bg-success bg-opacity-10 text-success border border-success mb-3 px-3 py-2 rounded-pill">System Architecture</span>
+            <h5 className="fw-bold text-dark mb-3">Modernizing Enterprise Portals with Headless CMS</h5>
+            <p className="text-muted small mb-4 lh-lg" style={{ textAlign: 'justify' }}>
+              Transitioning from monolithic legacy platforms to headless architectures provides unprecedented operational flexibility. Decoupling content management systems from modern front-end frameworks like React and Bootstrap ensures much faster, responsive delivery of corporate data and real-time operational dashboards.
+            </p>
+            <a href="#read-more" className="text-success fw-bold text-decoration-none small text-uppercase tracking-wider">
+              Read Full Report <i className="bi bi-arrow-right ms-1"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      {/* POST 2: Innovation */}
-      <div className="col-lg-4 col-md-6">
-        <div className="card h-100 border-0 shadow-lg rounded-5 overflow-hidden transition-hover">
-          <div className="position-relative">
-            <img src="/blog-battery.png" className="card-img-top" style={{ height: '200px', objectFit: 'cover' }} alt="Batteries" />
-            <span className="position-absolute top-0 start-0 m-3 badge bg-success">Innovation</span>
-          </div>
-          <div className="card-body p-4">
-            <p className="extra-small text-muted mb-2">February 28, 2026</p>
-            <h5 className="fw-bold mb-3">The Shift to Sodium-Ion Battery Technology</h5>
-            <p className="small text-secondary mb-4">
-              Why JAHS is leading the way in testing Sodium-Ion alternatives for more sustainable and cost-effective telecom power storage.
-            </p>
-            <button className="btn btn-outline-primary btn-sm rounded-pill px-4">Read More</button>
-          </div>
+      {/* WEATHER FORECAST & ALERTS COLUMN */}
+      <div className="col-lg-4">
+        <div className="d-flex align-items-center mb-4">
+          <i className="bi bi-cloud-sun-fill text-primary fs-4 me-2"></i>
+          <h4 className="fw-bold text-dark mb-0">Operations Weather</h4>
         </div>
-      </div>
 
-      {/* POST 3: Community/OJT */}
-      <div className="col-lg-4 col-md-6">
-        <div className="card h-100 border-0 shadow-lg rounded-5 overflow-hidden transition-hover">
-          <div className="position-relative">
-            <img src="/blog-ojt.png" className="card-img-top" style={{ height: '200px', objectFit: 'cover' }} alt="Interns" />
-            <span className="position-absolute top-0 start-0 m-3 badge bg-dark">Community</span>
+        {/* Professional Weather Widget */}
+        <div className="card border-0 shadow-lg rounded-5 overflow-hidden bg-dark text-white mb-4">
+          <div className="card-header border-0 bg-transparent p-4 pb-0 d-flex justify-content-between align-items-start">
+            <div>
+              <h6 className="text-uppercase fw-bold text-primary mb-1" style={{ letterSpacing: '2px', fontSize: '0.75rem' }}>Active Sector</h6>
+              <h4 className="fw-bold mb-0">Bulakan</h4>
+              <p className="small text-white-50">Bulacan, Philippines</p>
+            </div>
+            <i className="bi bi-geo-alt-fill text-primary fs-4"></i>
           </div>
-          <div className="card-body p-4">
-            <p className="extra-small text-muted mb-2">January 10, 2026</p>
-            <h5 className="fw-bold mb-3">Empowering the Next Generation of Engineers</h5>
-            <p className="small text-secondary mb-4">
-              Highlights from our 2025 OJT Program, where interns gained hands-on experience in MW installation and network testing.
-            </p>
-            <button className="btn btn-outline-primary btn-sm rounded-pill px-4">Read More</button>
+          
+          <div className="card-body p-4 text-center">
+            {/* Current Weather: Sunny */}
+            <i className="bi bi-sun-fill text-warning display-1 mb-3 d-block drop-shadow"></i>
+            <h1 className="display-2 fw-bolder mb-0" style={{ fontFamily: "'Nexa Slab', serif" }}>32°C</h1>
+            <p className="lead fw-bold text-white-50 mb-4">Sunny</p>
+            
+            <div className="row g-2 text-center border-top border-secondary pt-4">
+              <div className="col-4">
+                <i className="bi bi-droplet-half text-primary mb-2 fs-5"></i>
+                <p className="small text-white-50 mb-0">Humidity</p>
+                <span className="fw-bold">65%</span>
+              </div>
+              <div className="col-4 border-start border-end border-secondary">
+                <i className="bi bi-wind text-primary mb-2 fs-5"></i>
+                <p className="small text-white-50 mb-0">Wind</p>
+                <span className="fw-bold">5 km/h</span>
+              </div>
+              <div className="col-4">
+                <i className="bi bi-eye text-primary mb-2 fs-5"></i>
+                <p className="small text-white-50 mb-0">Visibility</p>
+                <span className="fw-bold">10 km</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* 2-Day Forecast Outlook (Updated for next days) */}
+          <div className="bg-white bg-opacity-10 p-4">
+            <h6 className="text-uppercase text-white-50 fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>48-Hour Outlook</h6>
+            
+            {/* Thursday Forecast */}
+            <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom border-secondary">
+              <span className="fw-bold">Thursday</span>
+              <div className="d-flex align-items-center">
+                <i className="bi bi-cloud-sun-fill text-warning me-3 fs-5"></i>
+                <span className="fw-bold">33° <span className="text-white-50 fw-normal ms-1">26°</span></span>
+              </div>
+            </div>
+            
+            {/* Friday Forecast */}
+            <div className="d-flex justify-content-between align-items-center">
+              <span className="fw-bold">Friday</span>
+              <div className="d-flex align-items-center">
+                <i className="bi bi-sun-fill text-warning me-3 fs-5"></i>
+                <span className="fw-bold">34° <span className="text-white-50 fw-normal ms-1">26°</span></span>
+              </div>
+            </div>
+            
           </div>
         </div>
+
+        {/* Operational Weather Alert */}
+        <div className="card border-0 bg-primary bg-opacity-10 rounded-4 shadow-sm">
+          <div className="card-body p-4 d-flex align-items-start">
+            <div className="bg-white rounded-circle p-2 d-flex align-items-center justify-content-center shadow-sm me-3" style={{ width: '45px', height: '45px', flexShrink: 0 }}>
+              <i className="bi bi-info-circle-fill text-primary fs-5"></i>
+            </div>
+            <div>
+              <h6 className="fw-bold text-dark mb-2">Logistics Advisory</h6>
+              <p className="small text-muted mb-0 lh-lg" style={{ textAlign: 'justify' }}>
+                Clear conditions expected for outdoor MW and BTS staging operations in local sectors. Safe for dispatch.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

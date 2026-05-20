@@ -432,176 +432,108 @@ function App() {
               </div>
             </div>
           )}
-{/* PERSONNEL PAGE */}
-{activePage === 'Personnel' && (
-  <div className="container py-5">
-    <div className="text-center mb-5">
-      {/* Changed "Our Team" to "Our Personnel" for consistency */}
-      <h1 className="display-4 fw-bold text-dark mb-2">Our Personnel</h1>
-      <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
-      <p className="lead text-secondary">A certified team of experts driving telecom excellence since 2004.</p>
+<div className="container py-5">
+  
+  {/* SECTION TITLE */}
+  <div className="mb-5 text-center">
+    <h2 className="fw-bolder text-dark" style={{ fontFamily: "'Nexa Slab', serif" }}>Leadership & Operations</h2>
+    <div className="bg-primary mx-auto mt-2" style={{ height: '3px', width: '60px' }}></div>
+  </div>
+
+  {/* 1. GENERAL MANAGER (Wide Spotlight Card with Hover) */}
+  <div className="card border-0 shadow rounded-4 overflow-hidden mb-5 transition-hover cursor-pointer">
+    <div className="row g-0 align-items-center">
+      <div className="col-md-4 bg-dark text-center p-5">
+        <img src="/Gen.png" alt="General Manager" className="img-fluid rounded-circle border border-4 border-primary mb-3 shadow-lg" style={{ width: '160px', height: '160px', objectFit: 'cover' }} />
+        <h4 className="text-white fw-bold mb-0">Jose Alexander H. Santos</h4>
+        <p className="text-primary small mb-0 text-uppercase tracking-wider">General Manager</p>
+      </div>
+      <div className="col-md-8 p-5 bg-white position-relative">
+        <i className="bi bi-quote text-light fs-1 position-absolute top-0 end-0 m-3 opacity-50"></i>
+        <p className="lead text-secondary fst-italic mb-3">
+          "Integrates technical oversight with business leadership, ensuring the company’s telecom services meet both operational and financial goals."
+        </p>
+        <div className="d-inline-flex align-items-center p-2 bg-light rounded-3 mt-2">
+        </div>
+      </div>
     </div>
-                  {/* LEADERSHIP - GENERAL MANAGER */}
-                  <div className="row justify-content-center mb-5">
-                    <div className="col-lg-8">
-                      <div className="p-4 p-md-5 bg-white shadow-lg rounded-5 border-top border-primary border-4 text-center">
-                        <img src="/Gen.png" className="rounded-circle border border-primary border-3 shadow-sm mb-3" style={{ width: '120px', height: '120px', objectFit: 'cover' }} alt="GM" />
-                        <h3 className="fw-bold text-dark mb-1">Jose Alex H. Santos</h3>
-                        <p className="text-primary fw-bold text-uppercase mb-3" style={{ letterSpacing: '2px', fontSize: '0.9rem' }}>General Manager</p>
-                        <div className="bg-light p-3 rounded-4 mx-auto" style={{ maxWidth: '600px' }}>
-                          <p className="small text-secondary mb-0">
-                            Integrates technical oversight with business leadership, ensuring the company’s telecom services meet both operational and financial goals.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+  </div>
 
-                  <div className="row g-4">
-                    {/* OPERATIONS & IMPLEMENTATION */}
-                    <div className="col-lg-6">
-                      <div className="h-100 p-4 bg-white shadow-sm rounded-5 border-top border-primary border-4">
-                        <h5 className="fw-bold mb-4 d-flex align-items-center">
-                          <i className="bi bi-gear-wide-connected text-primary me-2"></i> Operations & Implementation
-                        </h5>
-                        
-                        <div className="d-flex align-items-start mb-4">
-                          <img src="/Dennis.png" className="rounded-circle me-3 border shadow-sm" style={{ width: '55px', height: '55px', objectFit: 'cover' }} alt="Dennis" />
-                          <div>
-                            <h6 className="fw-bold mb-1">Jose Dennis H. Cruz</h6>
-                            <p className="text-primary extra-small fw-bold text-uppercase mb-2">Implementation Head</p>
-                            <p className="extra-small text-muted mb-0">Oversees multiple projects, sets goals, manages teams, and ensures technical compliance.</p>
-                          </div>
-                        </div>
+  {/* 2. ADMINISTRATION & FINANCE (Hover Cards) */}
+  <div className="d-flex align-items-center mb-4">
+    <i className="bi bi-building-fill-check text-primary fs-4 me-2"></i>
+    <h4 className="fw-bold text-dark mb-0">Administration & Finance</h4>
+  </div>
+  
+  <div className="row g-4 mb-5">
+    {/* Finance Card */}
+    <div className="col-md-6">
+      <div className="card border-0 shadow-sm rounded-4 p-4 d-flex flex-row align-items-center h-100 transition-hover cursor-pointer">
+        <img src="/Glaiza.png" alt="Head of Finance" className="rounded-circle me-4 shadow-sm border border-2 border-light" style={{ width: '90px', height: '90px', objectFit: 'cover' }} />
+        <div>
+          <h5 className="fw-bold mb-1">Glaiza P. Santos</h5>
+          <p className="text-primary small mb-2 fw-bold text-uppercase">Accounting Head</p>
+          <a href="mailto:finance@jahs.com.ph" className="text-muted small text-decoration-none bg-light px-2 py-1 rounded">
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    {/* Admin Card */}
+    <div className="col-md-6">
+      <div className="card border-0 shadow-sm rounded-4 p-4 d-flex flex-row align-items-center h-100 transition-hover cursor-pointer">
+        <img src="/Pam.png" alt="Operations Administrator" className="rounded-circle me-4 shadow-sm border border-2 border-light" style={{ width: '90px', height: '90px', objectFit: 'cover' }} />
+        <div>
+          <h5 className="fw-bold mb-1">Pamela V. Fuentes</h5>
+          <p className="text-primary small mb-2 fw-bold text-uppercase">HR Assistant</p>
+          <a href="mailto:admin@jahs.com.ph" className="text-muted small text-decoration-none bg-light px-2 py-1 rounded">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                        <div className="row g-3">
-                          <div className="col-md-6">
-                            <div className="d-flex align-items-center p-2 border rounded-4">
-                              <img src="/Dave.png" className="rounded-circle me-2" style={{ width: '40px', height: '40px' }} alt="Dave" />
-                              <div>
-                                <p className="mb-0 fw-bold extra-small">Dave E. Manlapaz</p>
-                                <p className="text-muted extra-small mb-0">Implementation</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="d-flex align-items-center p-2 border rounded-4">
-                              <img src="/Simon.png" className="rounded-circle me-2" style={{ width: '40px', height: '40px' }} alt="Simon" />
-                              <div>
-                                <p className="mb-0 fw-bold extra-small">Simon Paul S. Tapia</p>
-                                <p className="text-muted extra-small mb-0">Project Coordinator</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <p className="extra-small text-muted mt-3 ps-2 border-start">
-                          <strong>Coordinator Role:</strong> Scheduling, documentation, communication, and reporting.
-                        </p>
-                      </div>
-                    </div>
+  {/* 3. CORE DIVISIONS (Turned into Interactive Hover Cards) */}
+  <div className="bg-light p-5 rounded-5 border mt-5">
+    <div className="text-center mb-5">
+      <h4 className="fw-bold text-dark mb-1">Our Dedicated Workforce</h4>
+      <p className="text-muted small">Supporting our leadership is a nationwide network of specialists.</p>
+    </div>
+    
+    <div className="row g-4 text-center">
+      <div className="col-md-4">
+        <div className="card border-0 shadow-sm rounded-4 p-4 h-100 transition-hover bg-white cursor-pointer">
+          <div className="bg-primary bg-opacity-10 rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style={{ width: '70px', height: '70px' }}>
+            <i className="bi bi-tools text-primary fs-3"></i>
+          </div>
+          <h6 className="fw-bold text-dark">Implementation Engineers</h6>
+          <p className="text-muted small mb-0">Certified experts in high-voltage DC systems and active equipment integration.</p>
+        </div>
+      </div>
+      
+      <div className="col-md-4">
+        <div className="card border-0 shadow-sm rounded-4 p-4 h-100 transition-hover bg-white cursor-pointer">
+          <div className="bg-primary bg-opacity-10 rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style={{ width: '70px', height: '70px' }}>
+            <i className="bi bi-truck text-primary fs-3"></i>
+          </div>
+          <h6 className="fw-bold text-dark">Logistics & Fleet Teams</h6>
+          <p className="text-muted small mb-0">Coordinating nationwide material staging, secure transport, and site delivery.</p>
+        </div>
+      </div>
+      
+      <div className="col-md-4">
+        <div className="card border-0 shadow-sm rounded-4 p-4 h-100 transition-hover bg-white cursor-pointer">
+          <div className="bg-primary bg-opacity-10 rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style={{ width: '70px', height: '70px' }}>
+            <i className="bi bi-shield-check text-primary fs-3"></i>
+          </div>
+          <h6 className="fw-bold text-dark">Quality & Safety Officers</h6>
+          <p className="text-muted small mb-0">Ensuring all site operations exceed Tier-1 telco safety protocols.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                    {/* ADMIN & HR */}
-                    <div className="col-lg-6">
-                      <div className="h-100 p-4 bg-white shadow-sm rounded-5 border-top border-primary border-4">
-                        <h5 className="fw-bold mb-4 d-flex align-items-center">
-                          <i className="bi bi-person-badge text-primary me-2"></i> Administration & Finance
-                        </h5>
-
-                        <div className="d-flex align-items-start mb-4">
-                          <img src="/Glaiza.png" className="rounded-circle me-3 border shadow-sm" style={{ width: '55px', height: '55px', objectFit: 'cover' }} alt="Glaiza" />
-                          <div>
-                            <h6 className="fw-bold mb-1">Glaiza P. Santos</h6>
-                            <p className="text-primary extra-small fw-bold text-uppercase mb-2">Accounting Head</p>
-                            <p className="extra-small text-muted mb-0">Financial reporting, audits, controls, and team leadership.</p>
-                          </div>
-                        </div>
-
-                        <div className="row g-3">
-                          <div className="col-md-6">
-                            <div className="d-flex align-items-center p-2 border rounded-4 h-100">
-                              <img src="/Pam.png" className="rounded-circle me-2" style={{ width: '40px', height: '40px' }} alt="Pam" />
-                              <div>
-                                <p className="mb-0 fw-bold extra-small">Pamela V. Fuentes</p>
-                                <p className="text-muted extra-small mb-0">HR Assistant</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="p-2 border rounded-4 h-100">
-                              <p className="mb-0 fw-bold extra-small">HR Head Role</p>
-                              <p className="text-muted extra-small mb-0 small">Recruitment, training, and employee relations.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* ENGINEERING & SUPPORT SECTION */}
-                    <div className="col-md-4">
-                      <div className="h-100 p-4 bg-white shadow-sm rounded-5 border-top border-primary border-4">
-                        <h5 className="fw-bold mb-4 small text-uppercase">Engineering & Support</h5>
-                        <div className="d-flex align-items-center mb-4">
-                          <img src="/John.png" className="rounded-circle me-3 shadow-sm border" style={{ width: '50px', height: '50px', objectFit: 'cover' }} alt="John" />
-                          <div>
-                            <p className="mb-0 fw-bold small">John Deniel Lava</p>
-                            <p className="text-primary extra-small fw-bold mb-0">Implementation Engineer</p>
-                          </div>
-                        </div>
-                        <div className="d-flex align-items-start mb-3">
-                          <img src="/Edgardo.png" className="rounded-circle me-3 shadow-sm border" style={{ width: '50px', height: '50px', objectFit: 'cover' }} alt="Edgardo" />
-                          <div>
-                            <p className="mb-0 fw-bold small">Edgardo Nacar Jr.</p>
-                            <p className="text-primary extra-small fw-bold mb-1">Support Engineering Technician</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* LOGISTICS & WAREHOUSE */}
-                    <div className="col-md-4">
-                      <div className="h-100 p-4 bg-white shadow-sm rounded-5 border-top border-primary border-4">
-                        <h5 className="fw-bold mb-4 small text-uppercase">Logistics & Records</h5>
-                        <div className="d-flex align-items-center mb-4">
-                          <img src="/Ramon.png" className="rounded-circle me-3 shadow-sm border" style={{ width: '45px', height: '45px', objectFit: 'cover' }} alt="Ramon" />
-                          <div>
-                            <p className="mb-0 fw-bold small">Ramon E. Soriano</p>
-                            <p className="text-muted extra-small mb-0">Logistics / Records</p>
-                          </div>
-                        </div>
-                        <div className="bg-light p-3 rounded-4">
-                          <p className="mb-2 fw-bold extra-small text-dark text-uppercase">Warehouse Team</p>
-                          <div className="d-flex gap-2">
-                            <img src="/Ware1.png" className="rounded-circle border bg-white shadow-sm" style={{ width: '35px', height: '35px', objectFit: 'cover' }} alt="W1" />
-                            <img src="/Ware2.png" className="rounded-circle border bg-white shadow-sm" style={{ width: '35px', height: '35px', objectFit: 'cover' }} alt="W2" />
-                            <img src="/Ware3.png" className="rounded-circle border bg-white shadow-sm" style={{ width: '35px', height: '35px', objectFit: 'cover' }} alt="W3" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* SAFETY & HEALTH */}
-                    <div className="col-md-4">
-                      <div className="h-100 p-4 bg-white shadow-sm rounded-5 border-top border-primary border-4">
-                        <h5 className="fw-bold mb-4 small text-uppercase">Safety Team</h5>
-                        <div className="d-flex align-items-center mb-3">
-                          <img src="/Luis.png" className="rounded-circle me-3 shadow-sm border" style={{ width: '45px', height: '45px', objectFit: 'cover' }} alt="Luis" />
-                          <div>
-                            <p className="mb-0 fw-bold small">Luisito A. Leonor</p>
-                            <p className="text-muted extra-small mb-0">Senior Safety</p>
-                          </div>
-                        </div>
-                        <div className="d-flex align-items-center">
-                          <img src="/Ricky.png" className="rounded-circle me-3 shadow-sm border" style={{ width: '45px', height: '45px', objectFit: 'cover' }} alt="Ricky" />
-                          <div>
-                            <p className="mb-0 fw-bold small">Ricky Pacheco</p>
-                            <p className="text-muted extra-small mb-0">First Aider</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+</div>
               {/* BLOG PAGE */}
 {activePage === 'Blog' && (
   <div className="container py-5">

@@ -44,14 +44,21 @@ function App() {
   };
 
   return (
-    <div className="app-wrapper">
-      <div className="d-flex">
-        <SideBar activePage={activePage} setActivePage={setActivePage} />
+  <div className="app-wrapper">
+    <div className="d-flex w-100">
+      
+      {/* 1. Sidebar on the left */}
+      <SideBar activePage={activePage} setActivePage={setActivePage} />
+
+      {/* 2. Main content wrapper on the right */}
+      <div className="flex-grow-1 w-100">
         
+        {/* Put your actual <main> tag INSIDE this div */}
         <main className="main-content w-100">
           
           {/* HOME PAGE */}
           {activePage === 'Home' && (
+             // ... the rest of your page code stays exactly the same
             <div className="container py-5">
               {/* HERO SECTION */}
               <div className="text-center mb-5 pb-4">
@@ -785,10 +792,11 @@ function App() {
                   </div>
                 </div>
               )}
-            </main>
-          </div>
-        </div>
-      );
-    }
+           </main>
+      </div> {/* Closes flex-grow-1 */}
+    </div> {/* Closes d-flex */}
+  </div> 
+  );
+};
 
     export default App;

@@ -1,6 +1,5 @@
 :root {
-  /* Removed --tb-height */
-  --sb-width: 280px;
+  --sb-width: 50px; /* Restored from 50px to lock the correct width */
   --bg-soft: #f8fafc;
   --primary: #0d6efd;
 }
@@ -15,40 +14,71 @@ body {
   background: radial-gradient(circle at top right, #ffffff, #f1f5f9);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
-  overflow: hidden; /* Prevents double scrollbars on the body */
+  overflow-x: hidden; 
 }
 
-/* --- REMOVED .topbar-container --- */
+/* --- DESKTOP LAYOUT (Screens 768px and wider) --- */
+@media (min-width: 768px) {
+  .d-flex.w-100 {
+    flex-direction: row !important;
+  }
 
-.sidebar-container {
-  width: var(--sb-width);
-  height: 100vh; /* Changed from calc(100vh - var(--tb-height)) */
-  position: fixed;
-  top: 0; /* Changed from var(--tb-height) */
-  left: 0;
-  background-color: #0f172a;
-  z-index: 1000;
-  box-shadow: 4px 0 24px rgba(0,0,0,0.05);
+  /* Target explicit class names and re-applied dark background color */
+  .sidebar-container, .responsive-sidebar {
+    width: var(--sb-width) !important;
+    min-width: var(--sb-width) !important;
+    max-width: var(--sb-width) !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: #0f172a !important;
+    z-index: 1000 !important;
+    overflow-y: auto;
+  }
+
+  /* Target the content wrapper */
+  .flex-grow-1 {
+    margin-left: var(--sb-width) !important;
+    width: calc(100% - var(--sb-width)) !important;
+    padding: 0 !important; 
+  }
+
+  /* Remove any residual margins on the inner main tag */
+  .main-content {
+    margin: 0 !important;
+  }
 }
 
-.main-content {
-  margin-left: var(--sb-width);
-  margin-top: 0; /* Changed from var(--tb-height) */
-  padding: 40px;
-  width: calc(100% - var(--sb-width));
-  height: 100vh;
-  overflow-y: auto; /* Allow content to scroll independently */
-  background-color: #f8f9fa;
-  transition: all 0.3s ease;
+/* --- MOBILE LAYOUT (Screens smaller than 768px) --- */
+@media (max-width: 767.98px) {
+  .d-flex.w-100 {
+    flex-direction: column !important;
+  }
+
+  /* Release the sidebar constraints for mobile */
+  .sidebar-container, .responsive-sidebar {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    background-color: transparent !important;
+  }
+
+  .flex-grow-1 {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
 }
 
 /* --- MAP VIEW ADJUSTMENT --- */
 .map-wrapper {
-  height: 100vh; /* Changed from calc(100vh - var(--tb-height)) */
+  height: 100vh; 
   width: 100%;
 }
 
-/* Clean up remaining references */
+/* --- UI ELEMENTS --- */
 .hero-card {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
@@ -82,15 +112,15 @@ body {
 .extra-small {
   font-size: 10px;
 }
-/* Target the sidebar branding area */
+
 .sidebar-header {
-    background-color: transparent !important;
-    border: none !important;
+  background-color: transparent !important;
+  border: none !important;
 }
 
 .sidebar-logo {
-    display: block;
-    margin: 0 auto;
-    background: transparent !important; /* Forces transparency */
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); /* Optional: makes it pop */
+  display: block;
+  margin: 0 auto;
+  background: transparent !important; 
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); 
 }

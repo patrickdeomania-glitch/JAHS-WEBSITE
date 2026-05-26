@@ -653,28 +653,32 @@ function App() {
             </div>
           </div>
           
-          {/* 2-Day Forecast Outlook (Updated for next days) */}
+          {/* Dynamic Weekly Forecast Outlook */}
           <div className="bg-white bg-opacity-10 p-4">
-            <h6 className="text-uppercase text-white-50 fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>48-Hour Outlook</h6>
+            <h6 className="text-uppercase text-white-50 fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Weekly Forecast</h6>
             
-            {/* Thursday Forecast */}
-            <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom border-secondary">
-              <span className="fw-bold">Thursday</span>
-              <div className="d-flex align-items-center">
-                <i className="bi bi-cloud-sun-fill text-warning me-3 fs-5"></i>
-                <span className="fw-bold">33° <span className="text-white-50 fw-normal ms-1">26°</span></span>
+            {[
+              { day: 'Monday', temp: '31°C', icon: 'bi-sun-fill text-warning' },
+              { day: 'Tuesday', temp: '32°C', icon: 'bi-cloud-sun-fill text-warning' },
+              { day: 'Wednesday', temp: '29°C', icon: 'bi-cloud-rain-heavy-fill text-info' },
+              { day: 'Thursday', temp: '30°C', icon: 'bi-cloud-lightning-rain-fill text-info' },
+              { day: 'Friday', temp: '33°C', icon: 'bi-sun-fill text-warning' },
+              { day: 'Saturday', temp: '34°C', icon: 'bi-sun-fill text-warning' },
+              { day: 'Sunday', temp: '32°C', icon: 'bi-cloud-fill text-white-50' }
+            ].map((item, index, arr) => (
+              <div 
+                key={index} 
+                className={`d-flex justify-content-between align-items-center ${
+                  index !== arr.length - 1 ? 'mb-3 pb-3 border-bottom border-secondary border-opacity-25' : ''
+                }`}
+              >
+                <span className="fw-bold">{item.day}</span>
+                <div className="d-flex align-items-center">
+                  <i className={`bi ${item.icon} me-3 fs-5`}></i>
+                  <span className="fw-bold">{item.temp}</span>
+                </div>
               </div>
-            </div>
-            
-            {/* Friday Forecast */}
-            <div className="d-flex justify-content-between align-items-center">
-              <span className="fw-bold">Friday</span>
-              <div className="d-flex align-items-center">
-                <i className="bi bi-sun-fill text-warning me-3 fs-5"></i>
-                <span className="fw-bold">34° <span className="text-white-50 fw-normal ms-1">26°</span></span>
-              </div>
-            </div>
-            
+            ))}
           </div>
         </div>
 
@@ -795,7 +799,7 @@ function App() {
            </main>
       </div> {/* Closes flex-grow-1 */}
     </div> {/* Closes d-flex */}
-  </div> 
+  </div>
   );
 };
 

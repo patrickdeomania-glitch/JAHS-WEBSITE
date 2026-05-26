@@ -261,184 +261,202 @@ function App() {
           )}
 
               {/* ABOUT US PAGE */}
-              {activePage === 'About Us' && (
-                <div className="container py-5">
-                  <div className="text-center mb-5">
-                    <h1 className="display-4 fw-bold text-dark mb-2">About Us</h1>
-                    <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
-                    <p className="lead text-muted">Excellence in Electronic and Electrical Infrastructure</p>
-                  </div>
+{activePage === 'About Us' && (
+  <div className="container py-5">
+    <div className="text-center mb-5">
+      <h1 className="display-4 fw-bold text-dark mb-2">About Us</h1>
+      <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
+      <p className="lead text-muted">Excellence in Electronic and Electrical Infrastructure</p>
+    </div>
 
-                  {/* VISION & MISSION SECTION */}
-                  <div className="row g-4 justify-content-center mb-5">
-                    <div className="col-lg-6">
-                      <div className="h-100 p-5 bg-white shadow-lg rounded-5 border-top border-primary border-4">
-                        <div className="d-flex align-items-center mb-4">
-                          <div className="bg-primary bg-opacity-10 p-3 rounded-4 me-3">
-                            <i className="bi bi-eye-fill text-primary fs-3"></i>
-                          </div>
-                          <h2 className="fw-bold mb-0 text-dark">Our Vision</h2>
-                        </div>
-                        <p className="text-secondary lh-lg" style={{ textAlign: 'justify', fontSize: '1.05rem' }}>
-                          We aspire to work achieving the highest benchmark of quality and excellence in solutions service competitiveness in the ever-growing arena of technology and telecommunications, delivering total customer satisfaction locally and internationally.
-                        </p>
-                      </div>
-                    </div>
+    {/* VISION & MISSION SECTION */}
+    <div className="row g-4 justify-content-center mb-5">
+      <div className="col-lg-6">
+        <div className="h-100 p-5 bg-white shadow-lg rounded-5 border-top border-primary border-4">
+          <div className="d-flex align-items-center mb-4">
+            <div className="bg-primary bg-opacity-10 p-3 rounded-4 me-3">
+              <i className="bi bi-eye-fill text-primary fs-3"></i>
+            </div>
+            <h2 className="fw-bold mb-0 text-dark">Our Vision</h2>
+          </div>
+          <p className="text-secondary lh-lg" style={{ textAlign: 'justify', fontSize: '1.05rem' }}>
+            We aspire to work achieving the highest benchmark of quality and excellence in solutions service competitiveness in the ever-growing arena of technology and telecommunications, delivering total customer satisfaction locally and internationally.
+          </p>
+        </div>
+      </div>
 
-                    <div className="col-lg-6">
-                      <div className="h-100 p-5 bg-white shadow-lg rounded-5 border-top border-primary border-4">
-                        <div className="d-flex align-items-center mb-4">
-                          <div className="bg-primary bg-opacity-10 p-3 rounded-4 me-3">
-                            <i className="bi bi-rocket-takeoff-fill text-primary fs-3"></i>
-                          </div>
-                          <h2 className="fw-bold mb-0 text-dark">Our Mission</h2>
-                        </div>
-                        <p className="text-secondary mb-3 lh-lg" style={{ textAlign: 'justify', fontSize: '1.05rem' }}>
-                          Commitment to provide mutually viable and growing business relations with our telecommunications partners, as a certified and competent solution provider.
-                        </p>
-                        <p className="text-secondary lh-lg" style={{ textAlign: 'justify', fontSize: '1.05rem' }}>
-                          Continuous enhancement and development synchronous with the changing technological environment, hand in hand with team oriented principles and goals.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+      <div className="col-lg-6">
+        <div className="h-100 p-5 bg-white shadow-lg rounded-5 border-top border-primary border-4">
+          <div className="d-flex align-items-center mb-4">
+            <div className="bg-primary bg-opacity-10 p-3 rounded-4 me-3">
+              <i className="bi bi-rocket-takeoff-fill text-primary fs-3"></i>
+            </div>
+            <h2 className="fw-bold mb-0 text-dark">Our Mission</h2>
+          </div>
+          <p className="text-secondary mb-3 lh-lg" style={{ textAlign: 'justify', fontSize: '1.05rem' }}>
+            Commitment to provide mutually viable and growing business relations with our telecommunications partners, as a certified and competent solution provider.
+          </p>
+          <p className="text-secondary lh-lg" style={{ textAlign: 'justify', fontSize: '1.05rem' }}>
+            Continuous enhancement and development synchronous with the changing technological environment, hand in hand with team oriented principles and goals.
+          </p>
+        </div>
+      </div>
+    </div>
 
-                  {/* QUALITY POLICY SECTION */}
-                  <div className="row g-4 mb-5">
-                    <div className="col-12">
-                      <div className="p-5 bg-light rounded-5 border-start border-primary border-5 shadow-sm">
-                        <div className="row align-items-center">
-                          <div className="col-lg-8">
-                            <h2 className="fw-bold text-dark mb-4">The Quality Policy</h2>
-                            <p className="text-secondary mb-4">
-                              The objective of <strong>JAHS Electronics and Electrical Services</strong> is to provide quality services in a timely, effective, and efficient manner. We create and sustain profitable relationships while ensuring corporate goals and shareholder expectations are met.
-                            </p>
-                            <p className="text-secondary mb-4 italic">
-                              "Management and staff, through continuous improvement, commit to ensure that Quality Management Systems are everyone’s task."
-                            </p>
-                            <div className="p-3 bg-white rounded-4 border">
-                              <p className="small text-muted mb-0">
-                                <i className="bi bi-shield-check text-primary me-2"></i>
-                                Top Management ensures the successful maintenance of this program through accountability and a full understanding of QMS objectives.
-                              </p>
-                            </div>
-                          </div>
-                          <div className="col-lg-4 mt-4 mt-lg-0">
-                            <div className="p-4 bg-white shadow-sm rounded-4">
-                              <h5 className="fw-bold text-primary mb-3">Quality Objectives</h5>
-                              <ul className="list-unstyled mb-0">
-                                <li className="mb-3 d-flex align-items-start">
-                                  <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
-                                  <span className="small">Timely, effective, and efficient service delivery.</span>
-                                </li>
-                                <li className="mb-3 d-flex align-items-start">
-                                  <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
-                                  <span className="small">Consistently meeting customer expectations.</span>
-                                </li>
-                                <li className="mb-3 d-flex align-items-start">
-                                  <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
-                                  <span className="small">Continuous improvement of products and processes.</span>
-                                </li>
-                                <li className="d-flex align-items-start">
-                                  <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
-                                  <span className="small">Quality as a collective responsibility.</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+    {/* SAFETY COMMITMENT BANNER */}
+    <div className="card border-0 bg-danger bg-opacity-10 rounded-5 shadow-sm mb-5">
+      <div className="card-body p-5 text-center">
+        <div className="d-flex justify-content-center align-items-center mb-2">
+          <i className="bi bi-shield-fill-check text-danger fs-3 me-2"></i>
+          <h5 className="text-uppercase fw-bold text-danger mb-0" style={{ letterSpacing: '1px' }}>
+            Our Core Philosophy
+          </h5>
+        </div>
+        <h2 className="display-6 fw-bold text-dark my-3 tracking-tight">
+          "SAFETY Starts with 'S' but Begins with 'YOU'"
+        </h2>
+        <p className="text-secondary mx-auto mb-0 lh-lg" style={{ maxWidth: '750px', fontSize: '1.05rem' }}>
+          Whether staging telecom infrastructure, optimizing data centers, or deploying field teams, operational integrity relies on individual accountability. We ensure every team member returns home safely.
+        </p>
+      </div>
+    </div>
 
-                  {/* COMPANY PROFILE DETAILS SECTION */}
-                  <div className="row justify-content-center">
-                    <div className="col-lg-12">
-                      <div className="p-5 bg-dark text-white shadow-lg rounded-5">
-                        <div className="row g-4">
-                          <div className="col-md-6 col-lg-3">
-                            <h6 className="text-primary text-uppercase fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Organization</h6>
-                            <p className="mb-1 fw-bold">Single Proprietorship</p>
-                            <p className="text-muted small">Est. Sept 14, 2004</p>
-                          </div>
-                          <div className="col-md-6 col-lg-3">
-                            <h6 className="text-primary text-uppercase fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Contact Details</h6>
-                            <p className="mb-1 small"><i className="bi bi-telephone-fill me-2 text-primary"></i>+63 923 736 1130</p>
-                            <p className="mb-0 small"><i className="bi bi-telephone-fill me-2 text-primary"></i>+63 927 220 9126</p>
-                          </div>
-                          <div className="col-md-6 col-lg-3">
-                            <h6 className="text-primary text-uppercase fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Business Identity</h6>
-                            <p className="mb-1 small"><strong>TIN:</strong> 162-988-540-000</p>
-                            <p className="mb-0 small"><strong>SSS:</strong> 33-1695975-8</p>
-                          </div>
-                          <div className="col-md-6 col-lg-3">
-                            <h6 className="text-primary text-uppercase fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Accreditation</h6>
-                            <div className="d-inline-block p-2 bg-primary bg-opacity-25 rounded border border-primary border-opacity-50">
-                              <p className="mb-0 fw-bold small">PCAB License: 56269</p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <hr className="my-4 opacity-25" />
-                        
-                        {/* FIXED: SINGLE BLUE LINE ADDRESS */}
-                        <div className="d-flex align-items-center text-primary">
-                          <i className="bi bi-geo-alt-fill me-2 fs-5"></i>
-                          <span className="fw-bold me-1" style={{ fontSize: '13px', textTransform: 'uppercase' }}>Registered Office Address:</span>
-                          <span className="fw-bold" style={{ fontSize: '13px' }}>#424 Balubad Bulakan, Bulakan, Philippines 2017</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {/* EVENTS PAGE */}
-          {activePage === 'Events' && (
-            <div className="container py-5">
-              <div className="text-center mb-5">
-                <h1 className="display-4 fw-bold text-dark mb-2">Events & Highlights</h1>
-                <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
-              </div>
-
-              <div className="row g-4 justify-content-center">
-                <div className="col-lg-6">
-                  <div className="bg-white p-4 rounded-5 shadow-lg border-top border-primary border-5 h-100">
-                    <div className="d-flex align-items-center mb-4">
-                      <i className="bi bi-mortarboard-fill text-primary fs-3 me-3"></i>
-                      <h4 className="fw-bold mb-0">OJT Program 2025</h4>
-                    </div>
-                    <div id="ojtCarousel" className="carousel slide carousel-fade">
-                      <div className="carousel-inner rounded-4 shadow-sm">
-                        {[1, 2, 3, 4, 5, 6, 7, 8].map((num, index) => (
-                          <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={`ojt-${num}`}>
-                            <img src={`/ojt${num}.png`} className="d-block w-100" style={{ height: '380px', objectFit: 'cover' }} alt={`OJT ${num}`} />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-6">
-                  <div className="bg-white p-4 rounded-5 shadow-lg border-top border-success border-5 h-100">
-                    <div className="d-flex align-items-center mb-4">
-                      <i className="bi bi-people-fill text-success fs-3 me-3"></i>
-                      <h4 className="fw-bold mb-0">Team Engagement</h4>
-                    </div>
-                    <div id="engagementCarousel" className="carousel slide carousel-fade">
-                      <div className="carousel-inner rounded-4 shadow-sm">
-                        {[1, 2, 3, 4, 5, 6, 7].map((num, index) => (
-                          <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={`hl-${num}`}>
-                            <img src={`/hl${num}.png`} className="d-block w-100" style={{ height: '380px', objectFit: 'cover' }} alt={`Engagement ${num}`} />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    {/* QUALITY POLICY SECTION */}
+    <div className="row g-4 mb-5">
+      <div className="col-12">
+        <div className="p-5 bg-light rounded-5 border-start border-primary border-5 shadow-sm">
+          <div className="row align-items-center">
+            <div className="col-lg-8">
+              <h2 className="fw-bold text-dark mb-4">The Quality Policy</h2>
+              <p className="text-secondary mb-4">
+                The objective of <strong>JAHS Electronics and Electrical Services</strong> is to provide quality services in a timely, effective, and efficient manner. We create and sustain profitable relationships while ensuring corporate goals and shareholder expectations are met.
+              </p>
+              <p className="text-secondary mb-4 italic">
+                "Management and staff, through continuous improvement, commit to ensure that Quality Management Systems are everyone’s task."
+              </p>
+              <div className="p-3 bg-white rounded-4 border">
+                <p className="small text-muted mb-0">
+                  <i className="bi bi-shield-check text-primary me-2"></i>
+                  Top Management ensures the successful maintenance of this program through accountability and a full understanding of QMS objectives.
+                </p>
               </div>
             </div>
-          )}
+            <div className="col-lg-4 mt-4 mt-lg-0">
+              <div className="p-4 bg-white shadow-sm rounded-4">
+                <h5 className="fw-bold text-primary mb-3">Quality Objectives</h5>
+                <ul className="list-unstyled mb-0">
+                  <li className="mb-3 d-flex align-items-start">
+                    <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
+                    <span className="small">Timely, effective, and efficient service delivery.</span>
+                  </li>
+                  <li className="mb-3 d-flex align-items-start">
+                    <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
+                    <span className="small">Consistently meeting customer expectations.</span>
+                  </li>
+                  <li className="mb-3 d-flex align-items-start">
+                    <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
+                    <span className="small">Continuous improvement of products and processes.</span>
+                  </li>
+                  <li className="d-flex align-items-start">
+                    <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
+                    <span className="small">Quality as a collective responsibility.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* COMPANY PROFILE DETAILS SECTION */}
+    <div className="row justify-content-center">
+      <div className="col-lg-12">
+        <div className="p-5 bg-dark text-white shadow-lg rounded-5">
+          <div className="row g-4">
+            <div className="col-md-6 col-lg-3">
+              <h6 className="text-primary text-uppercase fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Organization</h6>
+              <p className="mb-1 fw-bold">Single Proprietorship</p>
+              <p className="text-muted small">Est. Sept 14, 2004</p>
+            </div>
+            <div className="col-md-6 col-lg-3">
+              <h6 className="text-primary text-uppercase fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Contact Details</h6>
+              <p className="mb-1 small"><i className="bi bi-telephone-fill me-2 text-primary"></i>+63 923 736 1130</p>
+              <p className="mb-0 small"><i className="bi bi-telephone-fill me-2 text-primary"></i>+63 927 220 9126</p>
+            </div>
+            <div className="col-md-6 col-lg-3">
+              <h6 className="text-primary text-uppercase fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Business Identity</h6>
+              <p className="mb-1 small"><strong>TIN:</strong> 162-988-540-000</p>
+              <p className="mb-0 small"><strong>SSS:</strong> 33-1695975-8</p>
+            </div>
+            <div className="col-md-6 col-lg-3">
+              <h6 className="text-primary text-uppercase fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Accreditation</h6>
+              <div className="d-inline-block p-2 bg-primary bg-opacity-25 rounded border border-primary border-opacity-50">
+                <p className="mb-0 fw-bold small">PCAB License: 56269</p>
+              </div>
+            </div>
+          </div>
+          
+          <hr className="my-4 opacity-25" />
+          
+          <div className="d-flex align-items-center text-primary">
+            <i className="bi bi-geo-alt-fill me-2 fs-5"></i>
+            <span className="fw-bold me-1" style={{ fontSize: '13px', textTransform: 'uppercase' }}>Registered Office Address:</span>
+            <span className="fw-bold" style={{ fontSize: '13px' }}>#424 Balubad Bulakan, Bulakan, Philippines 2017</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
+{/* EVENTS PAGE */}
+{activePage === 'Events' && (
+  <div className="container py-5">
+    <div className="text-center mb-5">
+      <h1 className="display-4 fw-bold text-dark mb-2">Events & Highlights</h1>
+      <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
+    </div>
+
+    <div className="row g-4 justify-content-center">
+      <div className="col-lg-6">
+        <div className="bg-white p-4 rounded-5 shadow-lg border-top border-primary border-5 h-100">
+          <div className="d-flex align-items-center mb-4">
+            <i className="bi bi-mortarboard-fill text-primary fs-3 me-3"></i>
+            <h4 className="fw-bold mb-0">OJT Program 2025</h4>
+          </div>
+          <div id="ojtCarousel" className="carousel slide carousel-fade">
+            <div className="carousel-inner rounded-4 shadow-sm">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((num, index) => (
+                <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={`ojt-${num}`}>
+                  <img src={`/ojt${num}.png`} className="d-block w-100" style={{ height: '380px', objectFit: 'cover' }} alt={`OJT ${num}`} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-lg-6">
+        <div className="bg-white p-4 rounded-5 shadow-lg border-top border-success border-5 h-100">
+          <div className="d-flex align-items-center mb-4">
+            <i className="bi bi-people-fill text-success fs-3 me-3"></i>
+            <h4 className="fw-bold mb-0">Team Engagement</h4>
+          </div>
+          <div id="engagementCarousel" className="carousel slide carousel-fade">
+            <div className="carousel-inner rounded-4 shadow-sm">
+              {[1, 2, 3, 4, 5, 6, 7].map((num, index) => (
+                <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={`hl-${num}`}>
+                  <img src={`/hl${num}.png`} className="d-block w-100" style={{ height: '380px', objectFit: 'cover' }} alt={`Engagement ${num}`} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
         {activePage === 'Personnel' && (
   <div className="container py-5">
     

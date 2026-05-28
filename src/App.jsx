@@ -12,6 +12,7 @@ function App() {
   const [isStreetView, setIsStreetView] = useState(false);
   const [timelineYear, setTimelineYear] = useState(2024);
   const [selectedReport, setSelectedReport] = useState(null); // Added this to manage the modal popups
+  const [activeYear, setActiveYear] = useState('2004');
   // AUTOMATED SLIDESHOW TRIGGER
   // This logic runs every time the user switches to the 'Events' page
   useEffect(() => {
@@ -57,208 +58,221 @@ function App() {
         <main className="main-content w-100">
           
           {/* HOME PAGE */}
-          {activePage === 'Home' && (
-             // ... the rest of your page code stays exactly the same
-            <div className="container py-5">
-              {/* HERO SECTION */}
-              <div className="text-center mb-5 pb-4">
-                <h1 className="display-2 fw-bold text-dark mb-2" style={{ fontFamily: "'Nexa Slab', serif", fontWeight: '700' }}>JAHS</h1>
-                <h3 className="text-primary text-uppercase fw-bold mb-4" style={{ letterSpacing: '4px', fontSize: '1.2rem' }}>Electronics and Electrical Services</h3>
-                <p className="lead text-secondary mx-auto" style={{ maxWidth: '800px' }}>
-                  A premier technical solution provider for the telecommunications industry, specializing in DC power systems, network infrastructure, and nationwide logistics.
-                </p>
-                <div className="mt-4">
-                  <span className="badge rounded-pill bg-light text-dark border px-3 py-2 me-2">Est. 2004</span>
-                  <span className="badge rounded-pill bg-primary px-3 py-2 me-2">Certified Engineering</span>
-                  <span className="badge rounded-pill bg-dark px-3 py-2">Nationwide Coverage</span>
+{activePage === 'Home' && (
+  <div className="container py-5">
+    
+    {/* CSS FOR HOVER EFFECTS - Embedded directly here so it works instantly */}
+    <style>{`
+      .transition-hover {
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+      }
+      .transition-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 3rem rgba(13, 110, 253, 0.15) !important;
+        border-color: #0d6efd !important;
+      }
+    `}</style>
+
+    {/* HERO SECTION */}
+    <div className="text-center mb-5 pb-4">
+      <h1 className="display-2 fw-bold text-dark mb-2" style={{ fontFamily: "'Nexa Slab', serif", fontWeight: '700' }}>JAHS</h1>
+      <h3 className="text-primary text-uppercase fw-bold mb-4" style={{ letterSpacing: '4px', fontSize: '1.2rem' }}>Electronics and Electrical Services</h3>
+      <p className="lead text-secondary mx-auto" style={{ maxWidth: '800px' }}>
+        A premier technical solution provider for the telecommunications industry, specializing in DC power systems, network infrastructure, and nationwide logistics.
+      </p>
+      <div className="mt-4">
+        <span className="badge rounded-pill bg-light text-dark border px-3 py-2 me-2">Est. 2004</span>
+        <span className="badge rounded-pill bg-primary px-3 py-2 me-2">Certified Engineering</span>
+        <span className="badge rounded-pill bg-dark px-3 py-2">Nationwide Coverage</span>
+      </div>
+    </div>
+
+    {/* CORE SERVICES */}
+    <div className="row g-4 mb-5">
+      {[
+        { title: "Warehousing & Logistics", icon: "bi-truck", desc: "Comprehensive logistics management and warehousing services." },
+        { title: "DC Power Systems", icon: "bi-lightning-charge-fill", desc: "Installation and commissioning of Rectifier and Inverter systems." },
+        { title: "Network Infrastructure", icon: "bi-reception-4", desc: "Installation of BTS, MW, BSC, MSC, RNC, and Wireless network servers." },
+        { title: "Engineering & Surveys", icon: "bi-pencil-square", desc: "Technical Site Surveys (TSS) and Radio Frequency Interference Testing." },
+        { title: "Upgrade & Modification", icon: "bi-gear-fill", desc: "RAN upgrades, transmission modifications, and equipment relocation." },
+        { title: "System Maintenance", icon: "bi-shield-check", desc: "Dedicated maintenance and technical support for telecom equipments." }
+      ].map((svc, i) => (
+        <div className="col-md-4" key={i}>
+          <div className="h-100 p-4 bg-white shadow-sm rounded-5 border-bottom border-primary border-3 transition-hover">
+            <i className={`bi ${svc.icon} text-primary fs-2 mb-3 d-block`}></i>
+            <h5 className="fw-bold">{svc.title}</h5>
+            <p className="small text-muted mb-0">{svc.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* MASTER LOGISTICS & INFRASTRUCTURE GALLERY */}
+    <div className="mb-5 mt-5">
+      
+      {/* --- SECTION 1: FLEET & TRANSPORT (log1 - log2) --- */}
+      <div className="d-flex align-items-center mb-4">
+        <div className="bg-dark p-3 rounded-4 me-3 shadow-sm">
+          <i className="bi bi-truck-front-fill text-white fs-4"></i>
+        </div>
+        <div>
+          <h3 className="fw-bolder text-dark mb-0" style={{ fontFamily: "'Nexa Slab', serif" }}>
+            Supply Chain & Fleet Operations
+          </h3>
+          <p className="text-muted mb-0 small">Secure transport and staging for telecom infrastructure</p>
+        </div>
+      </div>
+
+      <div className="row g-4 mb-5">
+        {[1, 2].map((num) => (
+          <div className="col-md-6" key={`fleet-${num}`}>
+            <div className="card border-0 shadow-lg rounded-4 overflow-hidden h-100">
+              <div className="position-relative">
+                <img 
+                  src={`/log${num}.png`} 
+                  className="w-100" 
+                  style={{ height: '300px', objectFit: 'cover' }} 
+                  alt={`JAHS Heavy Transport Unit ${num}`} 
+                />
+                <div className="position-absolute top-0 start-0 m-3">
+                  <span className="badge bg-dark bg-opacity-75 px-3 py-2 shadow border border-secondary">
+                    <i className="bi bi-geo-alt-fill text-danger me-2"></i> Active Dispatch
+                  </span>
                 </div>
               </div>
-
-              {/* CORE SERVICES */}
-              <div className="row g-4 mb-5">
-                {[
-                  { title: "Warehousing & Logistics", icon: "bi-truck", desc: "Comprehensive logistics management and warehousing services." },
-                  { title: "DC Power Systems", icon: "bi-lightning-charge-fill", desc: "Installation and commissioning of Rectifier and Inverter systems." },
-                  { title: "Network Infrastructure", icon: "bi-reception-4", desc: "Installation of BTS, MW, BSC, MSC, RNC, and Wireless network servers." },
-                  { title: "Engineering & Surveys", icon: "bi-pencil-square", desc: "Technical Site Surveys (TSS) and Radio Frequency Interference Testing." },
-                  { title: "Upgrade & Modification", icon: "bi-gear-fill", desc: "RAN upgrades, transmission modifications, and equipment relocation." },
-                  { title: "System Maintenance", icon: "bi-shield-check", desc: "Dedicated maintenance and technical support for telecom equipments." }
-                ].map((svc, i) => (
-                  <div className="col-md-4" key={i}>
-                    <div className="h-100 p-4 bg-white shadow-sm rounded-5 border-bottom border-primary border-3 transition-hover">
-                      <i className={`bi ${svc.icon} text-primary fs-2 mb-3 d-block`}></i>
-                      <h5 className="fw-bold">{svc.title}</h5>
-                      <p className="small text-muted mb-0">{svc.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              {/* MASTER LOGISTICS & INFRASTRUCTURE GALLERY */}
-<div className="mb-5 mt-5">
-  
-  {/* --- SECTION 1: FLEET & TRANSPORT (log1 - log2) --- */}
-  <div className="d-flex align-items-center mb-4">
-    <div className="bg-dark p-3 rounded-4 me-3 shadow-sm">
-      <i className="bi bi-truck-front-fill text-white fs-4"></i>
-    </div>
-    <div>
-      <h3 className="fw-bolder text-dark mb-0" style={{ fontFamily: "'Nexa Slab', serif" }}>
-        Supply Chain & Fleet Operations
-      </h3>
-      <p className="text-muted mb-0 small">Secure transport and staging for telecom infrastructure</p>
-    </div>
-  </div>
-
-  <div className="row g-4 mb-5">
-    {[1, 2].map((num) => (
-      <div className="col-md-6" key={`fleet-${num}`}>
-        <div className="card border-0 shadow-lg rounded-4 overflow-hidden h-100">
-          <div className="position-relative">
-            <img 
-              src={`/log${num}.png`} 
-              className="w-100" 
-              style={{ height: '300px', objectFit: 'cover' }} 
-              alt={`JAHS Heavy Transport Unit ${num}`} 
-            />
-            <div className="position-absolute top-0 start-0 m-3">
-              <span className="badge bg-dark bg-opacity-75 px-3 py-2 shadow border border-secondary">
-                <i className="bi bi-geo-alt-fill text-danger me-2"></i> Active Dispatch
-              </span>
             </div>
           </div>
-        </div>
+        ))}
       </div>
-    ))}
-  </div>
 
-  {/* --- SECTION 2: STAGED INVENTORY (box1 - box5) --- */}
-  <div className="d-flex align-items-center mb-3">
-    <i className="bi bi-boxes text-primary me-2 fs-5"></i>
-    <h5 className="fw-bold text-dark mb-0">Staged Asset Inventory</h5>
-  </div>
-  
-  <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 mb-5">
-    {[1, 2, 3, 4, 5].map((num) => (
-      <div className="col" key={`inventory-${num}`}>
-        <div className="card border border-light shadow-sm rounded-4 overflow-hidden h-100 transition-hover">
-          <img 
-            src={`/box${num}.png`} 
-            className="w-100" 
-            style={{ height: '180px', objectFit: 'cover' }} 
-            alt={`Secured Telecom Inventory ${num}`} 
-          />
-          <div className="card-footer bg-white border-top-0 text-center py-2">
-            <small className="fw-bold text-muted" style={{ fontSize: '0.70rem', letterSpacing: '1px' }}>
-              <i className="bi bi-upc-scan me-1"></i> SECURE BATCH-0{num}
-            </small>
+      {/* --- SECTION 2: STAGED INVENTORY (box1 - box5) --- */}
+      <div className="d-flex align-items-center mb-3">
+        <i className="bi bi-boxes text-primary me-2 fs-5"></i>
+        <h5 className="fw-bold text-dark mb-0">Staged Asset Inventory</h5>
+      </div>
+      
+      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 mb-5">
+        {[1, 2, 3, 4, 5].map((num) => (
+          <div className="col" key={`inventory-${num}`}>
+            <div className="card border border-light shadow-sm rounded-4 overflow-hidden h-100 transition-hover">
+              <img 
+                src={`/box${num}.png`} 
+                className="w-100" 
+                style={{ height: '180px', objectFit: 'cover' }} 
+                alt={`Secured Telecom Inventory ${num}`} 
+              />
+              <div className="card-footer bg-white border-top-0 text-center py-2">
+                <small className="fw-bold text-muted" style={{ fontSize: '0.70rem', letterSpacing: '1px' }}>
+                  <i className="bi bi-upc-scan me-1"></i> SECURE BATCH-0{num}
+                </small>
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
-    ))}
-  </div>
 
-  {/* --- SECTION 3: FACILITY OVERVIEW (war1 - war6) --- */}
-  <div className="d-flex align-items-center mb-3">
-    <i className="bi bi-building-gear text-primary me-2 fs-5"></i>
-    <h5 className="fw-bold text-dark mb-0">Inside Our Facilities</h5>
-  </div>
-
-  <div className="row g-3">
-    {[1, 2, 3, 4, 5, 6].map((num) => (
-      <div className="col-lg-4 col-md-6" key={`war-${num}`}>
-        <div className="card border-0 shadow-sm rounded-4 overflow-hidden transition-hover h-100">
-          <img 
-            src={`/war${num}.png`} 
-            className="w-100" 
-            style={{ height: '220px', objectFit: 'cover' }} 
-            alt={`JAHS Operational Facility ${num}`} 
-          />
-          <div className="card-img-overlay d-flex align-items-end p-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)' }}>
-            <span className="text-white small fw-bold p-3">Facility View 0{num}</span>
-          </div>
-        </div>
+      {/* --- SECTION 3: FACILITY OVERVIEW (war1 - war6) --- */}
+      <div className="d-flex align-items-center mb-3">
+        <i className="bi bi-building-gear text-primary me-2 fs-5"></i>
+        <h5 className="fw-bold text-dark mb-0">Inside Our Facilities</h5>
       </div>
-    ))}
-  </div>
 
-</div>
-
-               {/* MAJOR PROJECTS SECTION */}
-<div className="bg-dark text-white p-5 rounded-5 shadow-lg overflow-hidden position-relative">
-  
-  {/* ADJUSTED: Smaller, more subtle broadcast icon */}
-  <div className="position-absolute top-0 end-0 opacity-25" 
-       style={{ 
-         fontSize: '4rem', 
-         transform: 'translate(-20%, 20%)',
-         color: 'rgba(255, 255, 255, 0.1)' 
-       }}>
-    <i className="bi bi-broadcast"></i>
-  </div>
-
-  <div className="row position-relative" style={{ zIndex: 1 }}>
-    <div className="col-lg-12 mb-4">
-      <h2 className="fw-bold text-primary" style={{ fontFamily: "'Nexa Slab', serif" }}>Some Major Projects</h2>
-      <div className="bg-primary opacity-50" style={{ height: '3px', width: '60px' }}></div>
-    </div>
-
-                  {/* Highlights Column */}
-                  <div className="col-lg-3">
-                    <div className="d-flex flex-column gap-3">
-                      <div className="p-3 bg-white bg-opacity-10 rounded-4 border-start border-primary border-4">
-                        <h4 className="mb-0 fw-bold">600+ Sites</h4>
-                        <p className="extra-small text-primary text-uppercase fw-bold mb-0">Globe Lithium Ion Phase 1-5</p>
-                      </div>
-                      <div className="p-3 bg-white bg-opacity-10 rounded-4 border-start border-primary border-4">
-                        <h4 className="mb-0 fw-bold">250+ Sites</h4>
-                        <p className="extra-small text-primary text-uppercase fw-bold mb-0">Smart LTE Rectifier Project</p>
-                      </div>
-                      <div className="p-3 bg-white bg-opacity-10 rounded-4 border-start border-primary border-4">
-                        <h4 className="mb-0 fw-bold">40 Sites</h4>
-                        <p className="extra-small text-primary text-uppercase fw-bold mb-0">ETPI R3, R4 Projects</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Project Lists - Text set to solid black */}
-    <div className="col-lg-9 mt-4 mt-lg-0">
       <div className="row g-3">
-        <div className="col-md-6">
-          <div className="p-4 h-100 bg-white rounded-4 shadow-sm border border-light">
-            <h6 className="fw-bold text-primary mb-3 text-uppercase">Power & Data Centers</h6>
-            <ul className="extra-small list-unstyled lh-lg mb-0 text-black">
-              <li>• <strong>Globe Copenhagen 1,2,3:</strong> 120kW Rectifiers/Load Migration</li>
-              <li>• <strong>Globe Cabanatuan IMS:</strong> 120kW Rectifier, 80kW Inverters</li>
-              <li>• <strong>Globe Davao CLS:</strong> 120kW Rectifier, 80kW Inverters, 8 PDF Cabinets</li>
-              <li>• <strong>Globe PDF Project:</strong> TFND, DAVID, GALACTUS 1&2, ZAP</li>
-              <li>• <strong>AWS-Converge:</strong> Davao iCLS Project</li>
-              <li>• <strong>Vertiv-Converge:</strong> Bauang La Union DC</li>
-              <li>• <strong>Fusion Module 2000:</strong> Smart Small Data Center</li>
-              <li>• <strong>Vertiv-Local:</strong> DCPDF Systems for Globe MSC (Nationwide)</li>
-            </ul>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="p-4 h-100 bg-white rounded-4 shadow-sm border border-light">
-            <h6 className="fw-bold text-primary mb-3 text-uppercase">Wireless & Infrastructure</h6>
-            <ul className="extra-small list-unstyled lh-lg mb-0 text-black">
-              <li>• <strong>Ericsson-Smart:</strong> 4G/LTE/5G Installation & Testing</li>
-              <li>• <strong>DMPI Phase 6:</strong> VisMin Projects (BSC, BTS & MW)</li>
-              <li>• <strong>Globe IMS:</strong> Tiaong, Ormoc, and Talavera</li>
-              <li>• <strong>Edgepoint:</strong> New Sites/Coloc DC Installations & Battery Changeouts</li>
-              <li>• <strong>Orissa/Vertiv:</strong> Rectifier & Battery Changeouts (Nationwide)</li>
-              <li>• <strong>Globe:</strong> Battery Changeout using Sodium Batteries</li>
-              <li>• <strong>Edotco/Unified Tower:</strong> Outdoor Rectifier & Cabinet Installation</li>
-              <li>• <strong>Vertiv-POI Project:</strong> DC Systems for Globe-Infinivan-ETPI</li>
-            </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        {[1, 2, 3, 4, 5, 6].map((num) => (
+          <div className="col-lg-4 col-md-6" key={`war-${num}`}>
+            <div className="card border-0 shadow-sm rounded-4 overflow-hidden transition-hover h-100">
+              <img 
+                src={`/war${num}.png`} 
+                className="w-100" 
+                style={{ height: '220px', objectFit: 'cover' }} 
+                alt={`JAHS Operational Facility ${num}`} 
+              />
+              <div className="card-img-overlay d-flex align-items-end p-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)' }}>
+                <span className="text-white small fw-bold p-3">Facility View 0{num}</span>
               </div>
             </div>
-          )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* MAJOR PROJECTS SECTION */}
+    <div className="bg-dark text-white p-5 rounded-5 shadow-lg overflow-hidden position-relative">
+      
+      {/* ADJUSTED: Smaller, more subtle broadcast icon */}
+      <div className="position-absolute top-0 end-0 opacity-25" 
+           style={{ 
+             fontSize: '4rem', 
+             transform: 'translate(-20%, 20%)',
+             color: 'rgba(255, 255, 255, 0.1)' 
+           }}>
+        <i className="bi bi-broadcast"></i>
+      </div>
+
+      <div className="row position-relative" style={{ zIndex: 1 }}>
+        <div className="col-lg-12 mb-4">
+          <h2 className="fw-bold text-primary" style={{ fontFamily: "'Nexa Slab', serif" }}>Some Major Projects</h2>
+          <div className="bg-primary opacity-50" style={{ height: '3px', width: '60px' }}></div>
+        </div>
+
+        {/* Highlights Column */}
+        <div className="col-lg-3">
+          <div className="d-flex flex-column gap-3">
+            <div className="p-3 bg-white bg-opacity-10 rounded-4 border-start border-primary border-4">
+              <h4 className="mb-0 fw-bold">600+ Sites</h4>
+              <p className="extra-small text-primary text-uppercase fw-bold mb-0">Globe Lithium Ion Phase 1-5</p>
+            </div>
+            <div className="p-3 bg-white bg-opacity-10 rounded-4 border-start border-primary border-4">
+              <h4 className="mb-0 fw-bold">250+ Sites</h4>
+              <p className="extra-small text-primary text-uppercase fw-bold mb-0">Smart LTE Rectifier Project</p>
+            </div>
+            <div className="p-3 bg-white bg-opacity-10 rounded-4 border-start border-primary border-4">
+              <h4 className="mb-0 fw-bold">40 Sites</h4>
+              <p className="extra-small text-primary text-uppercase fw-bold mb-0">ETPI R3, R4 Projects</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Project Lists - Text set to solid black */}
+        <div className="col-lg-9 mt-4 mt-lg-0">
+          <div className="row g-3">
+            <div className="col-md-6">
+              <div className="p-4 h-100 bg-white rounded-4 shadow-sm border border-light">
+                <h6 className="fw-bold text-primary mb-3 text-uppercase">Power & Data Centers</h6>
+                <ul className="extra-small list-unstyled lh-lg mb-0 text-black">
+                  <li>• <strong>Globe Copenhagen 1,2,3:</strong> 120kW Rectifiers/Load Migration</li>
+                  <li>• <strong>Globe Cabanatuan IMS:</strong> 120kW Rectifier, 80kW Inverters</li>
+                  <li>• <strong>Globe Davao CLS:</strong> 120kW Rectifier, 80kW Inverters, 8 PDF Cabinets</li>
+                  <li>• <strong>Globe PDF Project:</strong> TFND, DAVID, GALACTUS 1&2, ZAP</li>
+                  <li>• <strong>AWS-Converge:</strong> Davao iCLS Project</li>
+                  <li>• <strong>Vertiv-Converge:</strong> Bauang La Union DC</li>
+                  <li>• <strong>Fusion Module 2000:</strong> Smart Small Data Center</li>
+                  <li>• <strong>Vertiv-Local:</strong> DCPDF Systems for Globe MSC (Nationwide)</li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="p-4 h-100 bg-white rounded-4 shadow-sm border border-light">
+                <h6 className="fw-bold text-primary mb-3 text-uppercase">Wireless & Infrastructure</h6>
+                <ul className="extra-small list-unstyled lh-lg mb-0 text-black">
+                  <li>• <strong>Ericsson-Smart:</strong> 4G/LTE/5G Installation & Testing</li>
+                  <li>• <strong>DMPI Phase 6:</strong> VisMin Projects (BSC, BTS & MW)</li>
+                  <li>• <strong>Globe IMS:</strong> Tiaong, Ormoc, and Talavera</li>
+                  <li>• <strong>Edgepoint:</strong> New Sites/Coloc DC Installations & Battery Changeouts</li>
+                  <li>• <strong>Orissa/Vertiv:</strong> Rectifier & Battery Changeouts (Nationwide)</li>
+                  <li>• <strong>Globe:</strong> Battery Changeout using Sodium Batteries</li>
+                  <li>• <strong>Edotco/Unified Tower:</strong> Outdoor Rectifier & Cabinet Installation</li>
+                  <li>• <strong>Vertiv-POI Project:</strong> DC Systems for Globe-Infinivan-ETPI</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
 
               {/* ABOUT US PAGE */}
 {activePage === 'About Us' && (
@@ -414,18 +428,38 @@ function App() {
 {activePage === 'Events' && (
   <div className="container py-5">
     <div className="text-center mb-5">
-      <h1 className="display-4 fw-bold text-dark mb-2">Events & Highlights</h1>
-      <div className="mx-auto bg-primary opacity-25 mb-4" style={{ height: '4px', width: '80px' }}></div>
+      <h1 className="display-4 fw-bolder text-dark mb-2">Events & Highlights</h1>
+      <div className="mx-auto bg-primary mb-4 rounded" style={{ height: '4px', width: '60px' }}></div>
     </div>
 
     <div className="row g-4 justify-content-center">
+      
+      {/* OJT CAROUSEL */}
       <div className="col-lg-6">
         <div className="bg-white p-4 rounded-5 shadow-lg border-top border-primary border-5 h-100">
           <div className="d-flex align-items-center mb-4">
             <i className="bi bi-mortarboard-fill text-primary fs-3 me-3"></i>
-            <h4 className="fw-bold mb-0">OJT Program 2025</h4>
+            <h4 className="fw-bold mb-0 text-dark">OJT Program 2025</h4>
           </div>
-          <div id="ojtCarousel" className="carousel slide carousel-fade">
+          
+          {/* data-bs-ride="carousel" enables auto-play, data-bs-interval controls speed (3000ms = 3s) */}
+          <div id="ojtCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+            
+            {/* Clickable bottom indicators */}
+            <div className="carousel-indicators mb-2">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((num, index) => (
+                <button 
+                  key={`ind-ojt-${num}`}
+                  type="button" 
+                  data-bs-target="#ojtCarousel" 
+                  data-bs-slide-to={index} 
+                  className={index === 0 ? "active" : ""} 
+                  aria-current={index === 0 ? "true" : "false"} 
+                  aria-label={`Slide ${num}`}
+                ></button>
+              ))}
+            </div>
+
             <div className="carousel-inner rounded-4 shadow-sm">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((num, index) => (
                 <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={`ojt-${num}`}>
@@ -433,17 +467,44 @@ function App() {
                 </div>
               ))}
             </div>
+
+            {/* Manual Left/Right Controls */}
+            <button className="carousel-control-prev" type="button" data-bs-target="#ojtCarousel" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-50" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#ojtCarousel" data-bs-slide="next">
+              <span className="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-50" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>
 
+      {/* TEAM ENGAGEMENT CAROUSEL */}
       <div className="col-lg-6">
         <div className="bg-white p-4 rounded-5 shadow-lg border-top border-success border-5 h-100">
           <div className="d-flex align-items-center mb-4">
             <i className="bi bi-people-fill text-success fs-3 me-3"></i>
-            <h4 className="fw-bold mb-0">Team Engagement</h4>
+            <h4 className="fw-bold mb-0 text-dark">Team Engagement</h4>
           </div>
-          <div id="engagementCarousel" className="carousel slide carousel-fade">
+          
+          <div id="engagementCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500">
+            
+            <div className="carousel-indicators mb-2">
+              {[1, 2, 3, 4, 5, 6, 7].map((num, index) => (
+                <button 
+                  key={`ind-hl-${num}`}
+                  type="button" 
+                  data-bs-target="#engagementCarousel" 
+                  data-bs-slide-to={index} 
+                  className={index === 0 ? "active" : ""} 
+                  aria-current={index === 0 ? "true" : "false"} 
+                  aria-label={`Slide ${num}`}
+                ></button>
+              ))}
+            </div>
+
             <div className="carousel-inner rounded-4 shadow-sm">
               {[1, 2, 3, 4, 5, 6, 7].map((num, index) => (
                 <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={`hl-${num}`}>
@@ -451,9 +512,19 @@ function App() {
                 </div>
               ))}
             </div>
+
+            <button className="carousel-control-prev" type="button" data-bs-target="#engagementCarousel" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-50" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#engagementCarousel" data-bs-slide="next">
+              <span className="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-50" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 )}
@@ -854,42 +925,213 @@ function App() {
           )}
 
               {/* PARTNERSHIP PAGE */}
-              {activePage === 'Partnership' && (
-                <div className="container py-5">
-                  <div className="text-center mb-5">
-                    <h1 className="display-4 fw-bold text-dark mb-2">TWO DECADES OF INNOVATION</h1>
-                    <p className="lead text-secondary">Strategic milestones from 2004 to 2026.</p>
+{activePage === 'Partnership' && (
+  (() => {
+    // Updated with the exact provided company history data
+    const milestones = [
+      {
+        year: '2004',
+        partners: [
+          { name: 'Emerson Network Power', projects: ['Rectifier-Battery Installation', 'Load Migration'] },
+          { name: 'Ericsson Phils', projects: ['2G Installation North Luzon'] }
+        ]
+      },
+      {
+        year: '2008',
+        partners: [
+          { name: 'Emerson Network Power', projects: ['Rectifier-Battery Installation'] },
+          { name: 'Ericsson-Digicel PNG', projects: ['MSC Load Migration', '2G-3G Installation'] }
+        ]
+      },
+      {
+        year: '2014',
+        partners: [
+          { name: 'Emerson Network Power / Ericsson Phils', projects: ['Rectifier-Battery Installation', 'MSC Load Migration', 'IMS Project'] },
+          { name: 'Nokia / ZTE', projects: ['2G-3G Installation'] },
+          { name: 'Advancenet Technology Phils', projects: ['Project Support'] }
+        ]
+      },
+      {
+        year: '2018',
+        partners: [
+          { name: 'Vertiv Phils / Ericsson Phils', projects: ['Rectifier-Battery Installation', 'LTE/4G Installation'] },
+          { name: 'Eltek Power Inc', projects: ['Infrastructure Support'] }
+        ]
+      },
+      {
+        year: '2023',
+        partners: [
+          { name: 'Vertiv Phils. Inc / Ericsson Phils', projects: ['Rectifier-Battery Installation', 'Rectifier-Inverter System'] },
+          { name: 'Orissa Wicomm / Unity Infrastructure', projects: ['Data Center', 'LTE-5G Installation'] },
+          { name: 'AWS / AMTI', projects: ['Cloud Infrastructure Monitoring'] }
+        ]
+      },
+      {
+        year: '2024',
+        partners: [
+          { name: 'Vertiv / Ericsson / PhilTower', projects: ['Rectifier-Battery Installation', 'ATP-MW Installation'] },
+          { name: 'Edgepoint Towers Inc / SMSGT', projects: ['Infrastructure Management'] },
+          { name: 'Exicom Power Solutions', projects: ['Warehousing'] }
+        ]
+      },
+      {
+        year: '2025',
+        partners: [
+          { name: 'Vertiv Phils. Inc / Ericsson Phils', projects: ['Rectifier-Battery Installation'] },
+          { name: 'MIDC', projects: ['MW Installation'] }
+        ]
+      },
+      {
+        year: '2026',
+        partners: [
+          { name: 'Globe Telecom.', projects: ['DC System Installation'] }
+        ]
+      }
+    ];
+
+    return (
+      <div className="container py-5">
+        {/* INLINE STYLES FOR ANIMATIONS AND TIMELINE */}
+        <style>{`
+          .fade-in-up {
+            animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .timeline-track {
+            position: absolute;
+            left: 24px;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            background: #e9ecef;
+            z-index: 1;
+          }
+          .timeline-node {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 3px solid #dee2e6;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+          }
+          .timeline-btn.active .timeline-node {
+            border-color: #0d6efd;
+            background-color: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+          }
+          .partner-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+          }
+          .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,0.08) !important;
+            border-color: rgba(13, 110, 253, 0.3);
+          }
+        `}</style>
+
+        <div className="text-center mb-5">
+          <span className="badge bg-primary bg-opacity-10 text-primary border border-primary px-3 py-2 rounded-pill mb-3 fw-bold tracking-wider text-uppercase">
+            Company History
+          </span>
+          <h1 className="display-4 fw-bolder text-dark mb-3">TWO DECADES OF INNOVATION</h1>
+          <p className="lead text-secondary mx-auto" style={{ maxWidth: '600px' }}>
+            A chronological overview of our strategic partnerships and major infrastructure deployments across the telecommunications sector.
+          </p>
+        </div>
+
+        <div className="row g-5 align-items-start mt-2">
+          
+          {/* CUSTOM VERTICAL TIMELINE UI */}
+          <div className="col-lg-3 position-relative">
+            <div className="timeline-track"></div>
+            <div className="d-flex flex-column gap-2">
+              {milestones.map((m) => (
+                <button 
+                  key={m.year}
+                  onClick={() => setActiveYear(m.year)}
+                  className={`timeline-btn btn btn-link text-decoration-none d-flex align-items-center p-2 text-start border-0 ${activeYear === m.year ? 'active' : ''}`}
+                >
+                  <div className="timeline-node me-4"></div>
+                 <span className={`fs-5 transition-hover ${activeYear === m.year ? 'fw-bolder text-primary fs-4' : 'fw-bold text-secondary'}`}>
+                    {m.year}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* DYNAMIC CONTENT AREA */}
+          <div className="col-lg-9">
+            <div key={activeYear} className="fade-in-up">
+              <div className="card border-0 shadow-lg rounded-5 bg-white overflow-hidden">
+                
+                {/* Header Section */}
+                <div className="bg-dark text-white p-5 position-relative overflow-hidden">
+                  <div className="position-absolute top-0 end-0 opacity-10 mt-n4 me-n4">
+                    <i className="bi bi-clock-history" style={{ fontSize: '15rem' }}></i>
                   </div>
-
-                  <div className="row g-4">
-                    <div className="col-md-4">
-                      <div className="list-group shadow-sm rounded-4 overflow-hidden">
-                        {[2004, 2008, 2014, 2018, 2023, 2024, 2025, 2026].map((year) => (
-                          <button key={year} onClick={() => setTimelineYear(year)} className={`list-group-item list-group-item-action py-3 fw-bold border-0 ${timelineYear === year ? 'bg-primary text-white' : 'text-muted'}`}>
-                            {year}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="col-md-8">
-                      <div className="p-4 bg-white shadow-lg rounded-5 border-start border-primary border-4">
-                        <h2 className="fw-bold text-primary mb-4">{timelineYear} Milestone</h2>
-                        <div className="row row-cols-1 g-3">
-                          {getPartnersByYear(timelineYear).map((partner, idx) => (
-                            <div key={idx} className="p-3 bg-light rounded-4">
-                              <h5 className="fw-bold mb-1">{partner.name}</h5>
-                              <ul className="small text-muted mb-0">
-                                {partner.projects.map((p, pi) => <li key={pi}>{p}</li>)}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                  <div className="position-relative z-index-2">
+                    <h6 className="text-uppercase tracking-wider text-primary fw-bold mb-2">Milestone Year</h6>
+                    <h2 className="display-3 fw-bolder mb-0">{activeYear}</h2>
                   </div>
                 </div>
-              )}
+                
+                {/* Partners Section */}
+                <div className="card-body p-5 bg-light">
+                  <div className="row g-4">
+                    {milestones.find(m => m.year === activeYear)?.partners.map((partner, index) => (
+                      <div key={index} className="col-12">
+                        <div className="partner-card bg-white p-4 rounded-4 h-100 shadow-sm border-start border-primary border-4">
+                          <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 gap-2">
+                            <div>
+                              <p className="text-uppercase small fw-bold text-muted mb-1 tracking-wider">Strategic Partner</p>
+                              <h4 className="fw-bolder text-dark mb-0">{partner.name}</h4>
+                            </div>
+                            <span className="badge bg-dark rounded-pill px-3 py-2 align-self-start align-self-md-auto">
+                              Completed Projects
+                            </span>
+                          </div>
+                          
+                          {/* Mapped using projects instead of tasks */}
+                          <div className="d-flex flex-wrap gap-2 mt-4">
+                            {partner.projects.map((project, i) => (
+                              <span key={i} className="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 px-3 py-2 rounded-pill fw-medium" style={{ fontSize: '0.9rem' }}>
+                                <i className="bi bi-check-circle-fill me-2"></i>{project}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    
+                    {/* Empty State Fallback */}
+                    {milestones.find(m => m.year === activeYear)?.partners.length === 0 && (
+                      <div className="col-12 text-center py-5">
+                        <div className="bg-white p-5 rounded-4 shadow-sm border text-muted">
+                          <i className="bi bi-tools fs-1 mb-3 d-block"></i>
+                          <h5 className="fw-bold">Data Updating</h5>
+                          <p className="mb-0">Partnership details for this operational year are currently being archived and updated.</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    );
+  })()
+)}
            </main>
       </div> {/* Closes flex-grow-1 */}
     </div> {/* Closes d-flex */}

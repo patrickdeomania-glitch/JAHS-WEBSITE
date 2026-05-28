@@ -11,7 +11,7 @@ function App() {
   const [activePage, setActivePage] = useState('Home');
   const [isStreetView, setIsStreetView] = useState(false);
   const [timelineYear, setTimelineYear] = useState(2024);
-
+  const [selectedReport, setSelectedReport] = useState(null); // Added this to manage the modal popups
   // AUTOMATED SLIDESHOW TRIGGER
   // This logic runs every time the user switches to the 'Events' page
   useEffect(() => {
@@ -567,7 +567,7 @@ function App() {
 
   </div>
 )}
- {/* BLOG PAGE */}
+{/* BLOG PAGE */}
 {activePage === 'Blog' && (
   <div className="container py-5">
     <div className="text-center mb-5">
@@ -585,45 +585,95 @@ function App() {
           <h4 className="fw-bold text-dark mb-0">Latest Technologies</h4>
         </div>
 
-        {/* Article 1: Energy & Telecom */}
-        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden transition-hover">
+        {/* Article 1 */}
+        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
           <div className="card-body p-4">
             <span className="badge bg-primary bg-opacity-10 text-primary border border-primary mb-3 px-3 py-2 rounded-pill">Telecom Infrastructure</span>
             <h5 className="fw-bold text-dark mb-3">The Shift to High-Efficiency Lithium-Ion Systems in Cell Sites</h5>
             <p className="text-muted small mb-4 lh-lg" style={{ textAlign: 'justify' }}>
               Modern telecom sites are rapidly migrating from traditional VRLA batteries to advanced Lithium-Ion solutions. This transition offers higher energy density, faster recharge rates, and longer lifespans, drastically reducing maintenance overhead for nationwide network operators and ensuring uninterrupted power during grid failures.
             </p>
-            <a href="#read-more" className="text-primary fw-bold text-decoration-none small text-uppercase tracking-wider">
+            <button 
+              onClick={() => setSelectedReport({
+                title: 'The Shift to High-Efficiency Lithium-Ion Systems in Cell Sites',
+                category: 'Telecom Infrastructure',
+                badgeClass: 'bg-primary bg-opacity-10 text-primary border border-primary',
+                summary: 'Modern telecom sites are rapidly migrating from traditional VRLA batteries to advanced Lithium-Ion solutions. This transition offers higher energy density, faster recharge rates, and longer lifespans, drastically reducing maintenance overhead for nationwide network operators and ensuring uninterrupted power during grid failures.',
+                fullContent: 'As networks expand to accommodate heavier bandwidths, power infrastructure demands greater resilience. Lithium-Ion batteries (LiFePO4) outperform traditional Lead-Acid options across all metrics. They sustain deep discharge cycles up to 10x longer, handle higher ambient temperatures without degradation, and incorporate intelligent Battery Management Systems (BMS) for real-time remote telemetry. This integration allows engineering teams to predict health metrics accurately, minimize physical site dispatches, and structurally guarantee 99.99% network availability.'
+              })}
+              className="btn btn-link p-0 fw-bold text-decoration-none small text-uppercase tracking-wider text-primary"
+            >
               Read Full Report <i className="bi bi-arrow-right ms-1"></i>
-            </a>
+            </button>
           </div>
         </div>
 
-        {/* Article 2: Network Engineering */}
-        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden transition-hover">
+        {/* Article 2 */}
+        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
           <div className="card-body p-4">
             <span className="badge bg-dark bg-opacity-10 text-dark border border-dark mb-3 px-3 py-2 rounded-pill">Network Engineering</span>
             <h5 className="fw-bold text-dark mb-3">IPv6 Adoption: Future-Proofing Next-Gen Network Layers</h5>
             <p className="text-muted small mb-4 lh-lg" style={{ textAlign: 'justify' }}>
               With the aggressive expansion of IoT devices and 5G network deployments, the exhaustion of IPv4 addresses mandates a definitive shift to IPv6. Mastering protocol headers, complex subnetting, and efficient router interface assignments is now critical for engineering robust, scalable data centers that can handle next-generation data loads.
             </p>
-            <a href="#read-more" className="text-dark fw-bold text-decoration-none small text-uppercase tracking-wider">
+            <button 
+              onClick={() => setSelectedReport({
+                title: 'IPv6 Adoption: Future-Proofing Next-Gen Network Layers',
+                category: 'Network Engineering',
+                badgeClass: 'bg-dark bg-opacity-10 text-dark border border-dark',
+                summary: 'With the aggressive expansion of IoT devices and 5G network deployments, the exhaustion of IPv4 addresses mandates a definitive shift to IPv6. Mastering protocol headers, complex subnetting, and efficient router interface assignments is now critical for engineering robust, scalable data centers that can handle next-generation data loads.',
+                fullContent: 'The transition to IPv6 is no longer optional; it is the foundation of modern routing layouts. Deploying a native dual-stack architecture or implementing advanced translation mechanisms (like NAT64/DNS64) simplifies routing tables and removes the overhead of complex NAT processes. Network engineers must prioritize header optimizations, configure link-local scoping properly, and assign clean hierarchical subnets to ensure effortless packet traversal across next-generation enterprise and carrier infrastructures.'
+              })}
+              className="btn btn-link p-0 fw-bold text-decoration-none small text-uppercase tracking-wider text-dark"
+            >
               Read Full Report <i className="bi bi-arrow-right ms-1"></i>
-            </a>
+            </button>
           </div>
         </div>
-        
-        {/* Article 3: Web & System Architecture */}
-        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden transition-hover">
+
+        {/* Article 3 */}
+        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
           <div className="card-body p-4">
             <span className="badge bg-success bg-opacity-10 text-success border border-success mb-3 px-3 py-2 rounded-pill">System Architecture</span>
             <h5 className="fw-bold text-dark mb-3">Modernizing Enterprise Portals with Headless CMS</h5>
             <p className="text-muted small mb-4 lh-lg" style={{ textAlign: 'justify' }}>
               Transitioning from monolithic legacy platforms to headless architectures provides unprecedented operational flexibility. Decoupling content management systems from modern front-end frameworks like React and Bootstrap ensures much faster, responsive delivery of corporate data and real-time operational dashboards.
             </p>
-            <a href="#read-more" className="text-success fw-bold text-decoration-none small text-uppercase tracking-wider">
+            <button 
+              onClick={() => setSelectedReport({
+                title: 'Modernizing Enterprise Portals with Headless CMS',
+                category: 'System Architecture',
+                badgeClass: 'bg-success bg-opacity-10 text-success border border-success',
+                summary: 'Transitioning from monolithic legacy platforms to headless architectures provides unprecedented operational flexibility. Decoupling content management systems from modern front-end frameworks like React and Bootstrap ensures much faster, responsive delivery of corporate data and real-time operational dashboards.',
+                fullContent: 'Traditional, rigid monolithic frameworks frequently bottleneck fast-paced data delivery. By decoupling the content storage backend from user-facing components via lightweight RESTful or GraphQL APIs, companies achieve lightning-fast response times. Content can be updated instantaneously behind the scenes, while front-end environments built using React and Bootstrap consume the structured data safely, rendering optimized components flawlessly on both desktop views and field mobile devices.'
+              })}
+              className="btn btn-link p-0 fw-bold text-decoration-none small text-uppercase tracking-wider text-success"
+            >
               Read Full Report <i className="bi bi-arrow-right ms-1"></i>
-            </a>
+            </button>
+          </div>
+        </div>
+
+        {/* Article 4 */}
+        <div className="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
+          <div className="card-body p-4">
+            <span className="badge bg-warning bg-opacity-10 text-warning border border-warning mb-3 px-3 py-2 rounded-pill">Renewable Infrastructure</span>
+            <h5 className="fw-bold text-dark mb-3">Accelerating Solar-Hybrid Power Integration in Regional Cell Sites</h5>
+            <p className="text-muted small mb-4 lh-lg" style={{ textAlign: 'justify' }}>
+              To combat escalating fuel overheads and grid volatility, regional network infrastructure is transitioning toward intelligent solar-hybrid configurations. Integrating photovoltaic arrays with smart power management controllers allows field sites to dramatically optimize energy consumption, reducing diesel runtime and ensuring seamless macro-site operations even during extended grid disruptions.
+            </p>
+            <button 
+              onClick={() => setSelectedReport({
+                title: 'Accelerating Solar-Hybrid Power Integration in Regional Cell Sites',
+                category: 'Renewable Infrastructure',
+                badgeClass: 'bg-warning bg-opacity-10 text-warning border border-warning',
+                summary: 'To combat escalating fuel overheads and grid volatility, regional network infrastructure is transitioning toward intelligent solar-hybrid configurations. Integrating photovoltaic arrays with smart power management controllers allows field sites to dramatically optimize energy consumption, reducing diesel runtime and ensuring seamless macro-site operations even during extended grid disruptions.',
+                fullContent: 'Solar-hybrid solutions represent a critical leap toward operational efficiency and structural sustainability. By blending green photovoltaic generation directly with conventional backup systems, intelligent power controllers can run dynamic priority switching. During high-yield sunlight hours, clean energy drives the direct DC site loads while recharging local storage banks, drastically dropping fuel dependencies and protecting vulnerable field equipment from macro-grid fluctuations.'
+              })}
+              className="btn btn-link p-0 fw-bold text-decoration-none small text-uppercase tracking-wider text-warning"
+            >
+              Read Full Report <i className="bi bi-arrow-right ms-1"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -635,7 +685,6 @@ function App() {
           <h4 className="fw-bold text-dark mb-0">Operations Weather</h4>
         </div>
 
-        {/* Professional Weather Widget */}
         <div className="card border-0 shadow-lg rounded-5 overflow-hidden bg-dark text-white mb-4">
           <div className="card-header border-0 bg-transparent p-4 pb-0 d-flex justify-content-between align-items-start">
             <div>
@@ -647,42 +696,39 @@ function App() {
           </div>
           
           <div className="card-body p-4 text-center">
-            {/* Current Weather: Sunny */}
-            <i className="bi bi-sun-fill text-warning display-1 mb-3 d-block drop-shadow"></i>
-            <h1 className="display-2 fw-bolder mb-0" style={{ fontFamily: "'Nexa Slab', serif" }}>32°C</h1>
-            <p className="lead fw-bold text-white-50 mb-4">Sunny</p>
+            <i className="bi bi-cloud-lightning-rain-fill text-info display-1 mb-3 d-block drop-shadow"></i>
+            <h1 className="display-2 fw-bolder mb-0" style={{ fontFamily: "'Nexa Slab', serif" }}>34°C</h1>
+            <p className="lead fw-bold text-white-50 mb-4">Thundershowers</p>
             
             <div className="row g-2 text-center border-top border-secondary pt-4">
               <div className="col-4">
                 <i className="bi bi-droplet-half text-primary mb-2 fs-5"></i>
                 <p className="small text-white-50 mb-0">Humidity</p>
-                <span className="fw-bold">65%</span>
+                <span className="fw-bold">78%</span>
               </div>
               <div className="col-4 border-start border-end border-secondary">
                 <i className="bi bi-wind text-primary mb-2 fs-5"></i>
                 <p className="small text-white-50 mb-0">Wind</p>
-                <span className="fw-bold">5 km/h</span>
+                <span className="fw-bold">12 km/h</span>
               </div>
               <div className="col-4">
                 <i className="bi bi-eye text-primary mb-2 fs-5"></i>
                 <p className="small text-white-50 mb-0">Visibility</p>
-                <span className="fw-bold">10 km</span>
+                <span className="fw-bold">8 km</span>
               </div>
             </div>
           </div>
           
-          {/* Dynamic Weekly Forecast Outlook */}
           <div className="bg-white bg-opacity-10 p-4">
             <h6 className="text-uppercase text-white-50 fw-bold mb-3 small" style={{ letterSpacing: '1px' }}>Weekly Forecast</h6>
-            
             {[
-              { day: 'Monday', temp: '31°C', icon: 'bi-sun-fill text-warning' },
-              { day: 'Tuesday', temp: '32°C', icon: 'bi-cloud-sun-fill text-warning' },
-              { day: 'Wednesday', temp: '29°C', icon: 'bi-cloud-rain-heavy-fill text-info' },
-              { day: 'Thursday', temp: '30°C', icon: 'bi-cloud-lightning-rain-fill text-info' },
-              { day: 'Friday', temp: '33°C', icon: 'bi-sun-fill text-warning' },
-              { day: 'Saturday', temp: '34°C', icon: 'bi-sun-fill text-warning' },
-              { day: 'Sunday', temp: '32°C', icon: 'bi-cloud-fill text-white-50' }
+              { day: 'Thursday', temp: '34°C', icon: 'bi-cloud-lightning-rain-fill text-info' },
+              { day: 'Friday', temp: '33°C', icon: 'bi-cloud-rain-heavy-fill text-info' },
+              { day: 'Saturday', temp: '35°C', icon: 'bi-cloud-sun-fill text-warning' },
+              { day: 'Sunday', temp: '34°C', icon: 'bi-sun-fill text-warning' },
+              { day: 'Monday', temp: '32°C', icon: 'bi-cloud-lightning-fill text-warning' },
+              { day: 'Tuesday', temp: '33°C', icon: 'bi-cloud-rain-fill text-info' },
+              { day: 'Wednesday', temp: '35°C', icon: 'bi-sun-fill text-warning' }
             ].map((item, index, arr) => (
               <div 
                 key={index} 
@@ -700,16 +746,15 @@ function App() {
           </div>
         </div>
 
-        {/* Operational Weather Alert */}
-        <div className="card border-0 bg-primary bg-opacity-10 rounded-4 shadow-sm">
+        <div className="card border-0 bg-warning bg-opacity-10 rounded-4 shadow-sm">
           <div className="card-body p-4 d-flex align-items-start">
             <div className="bg-white rounded-circle p-2 d-flex align-items-center justify-content-center shadow-sm me-3" style={{ width: '45px', height: '45px', flexShrink: 0 }}>
-              <i className="bi bi-info-circle-fill text-primary fs-5"></i>
+              <i className="bi bi-exclamation-triangle-fill text-warning fs-5"></i>
             </div>
             <div>
               <h6 className="fw-bold text-dark mb-2">Logistics Advisory</h6>
               <p className="small text-muted mb-0 lh-lg" style={{ textAlign: 'justify' }}>
-                Clear conditions expected for outdoor MW and BTS staging operations in local sectors. Safe for dispatch.
+                Isolated afternoon thundershowers expected across local sectors. Secure loose materials during outdoor MW and BTS staging installations and exercise caution during high-elevation dispatches.
               </p>
             </div>
           </div>
@@ -717,6 +762,37 @@ function App() {
 
       </div>
     </div>
+
+    {/* OVERLAY POPUP MODAL */}
+    {selectedReport && (
+      <>
+        <div className="modal fade show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', zIndex: 1060 }}>
+          <div className="modal-dialog modal-dialog-centered modal-lg">
+            <div className="modal-content border-0 shadow-lg rounded-5">
+              <div className="modal-header border-0 p-4 pb-0">
+                <span className={`badge rounded-pill ${selectedReport.badgeClass}`}>{selectedReport.category}</span>
+                <button type="button" className="btn-close shadow-none" onClick={() => setSelectedReport(null)}></button>
+              </div>
+              <div className="modal-body p-4 pt-3">
+                <h3 className="fw-bold text-dark mb-3">{selectedReport.title}</h3>
+                <div className="bg-light p-3 rounded-4 mb-4 border-start border-primary border-4">
+                  <p className="text-secondary small mb-0 fw-medium lh-lg">{selectedReport.summary}</p>
+                </div>
+                <h5 className="fw-bold text-dark mb-2 small text-uppercase tracking-wider">Analysis & Action Plan</h5>
+                <p className="text-muted small lh-lg mb-0" style={{ textAlign: 'justify' }}>
+                  {selectedReport.fullContent}
+                </p>
+              </div>
+              <div className="modal-footer border-0 p-4 pt-0">
+                <button type="button" className="btn btn-dark px-4 py-2 rounded-pill fw-bold small" onClick={() => setSelectedReport(null)}>
+                  Close Report
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    )}
   </div>
 )}
 
